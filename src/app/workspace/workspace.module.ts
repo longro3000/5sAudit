@@ -5,14 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AuditDetailPage } from './audit-detail.page';
-import { CheckItemListComponent } from './check-item-list/check-item-list.component';
-import { CheckItemComponent } from './check-item-list/check-item/check-item.component';
+import { WorkspacePage } from './workspace.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: AuditDetailPage
+    component: WorkspacePage
   }
 ];
 
@@ -23,6 +21,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [AuditDetailPage, CheckItemListComponent, CheckItemComponent]
+  declarations: [WorkspacePage]
 })
-export class AuditDetailPageModule {}
+export class WorkspacePageModule {}

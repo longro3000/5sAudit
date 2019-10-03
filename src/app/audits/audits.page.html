@@ -1,125 +1,38 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title text-center style="font-size: 20px">5s Audit</ion-title>
-    <ion-avatar slot="end">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center" style="font-size: 20px">Audits List</ion-title>
+    <ion-avatar slot="end" class="ion-margin">
       <img src="http://robohash.org/set_set1/bgset_bg2/kQqaIfGqxsjFoNIT" />
     </ion-avatar>
   </ion-toolbar>
+   
 </ion-header>
-
 <ion-content>
-  <ion-list class="ion-padding-top">
-    <ion-item text-center>
-      <ion-label class="ion-padding-bottom">
-        <strong style="font-size: 20px">Choose your workspace</strong>
-      </ion-label>
-    </ion-item>
+  <ion-list>
 
-    <ion-item detail>
-      <ion-col size="3" class="ion-padding-bottom">
-        <strong class="ion-text-uppercase">Warehouse</strong>
-      </ion-col>
-
-      <ion-col size="5" class="ion-padding">
-        <ion-label>
-          <strong>Audits</strong>
+    <ion-item>
+      <ion-col size="5">
+        <ion-label class="ion-padding-top ion-padding-bottom">
+            <strong>Audit Date</strong>
         </ion-label>
-        <br />
-        <ion-label>50</ion-label>
       </ion-col>
-
-      <ion-col size="5" class="ion-padding">
-        <ion-label>
-          <strong>
-            Last Audits
-          </strong>
-        </ion-label>
-        <br />
-        <ion-label>19.09.2019</ion-label>
+      <ion-col size-xs="7">
+          <ion-label class="ion-padding-top ion-padding-bottom">
+              <strong>Auditors</strong>
+          </ion-label>
+      </ion-col>
+      <ion-col size-xs="3" slot="end">
+          <ion-label class="ion-padding-top ion-padding-bottom">
+              <strong>Status</strong>
+          </ion-label>
       </ion-col>
     </ion-item>
 
-    <ion-item detail>
-      <ion-col size="3" class="ion-padding-bottom">
-        <strong class="ion-text-uppercase">Front Desk</strong>
-      </ion-col>
-
-      <ion-col size="5" class="ion-padding">
-        <ion-label>
-          <strong>Audits</strong>
-        </ion-label>
-        <br />
-        <ion-label>50</ion-label>
-      </ion-col>
-
-      <ion-col size="5" class="ion-padding">
-        <strong>Last Audits</strong>
-        <br />
-        <ion-label>19.09.2019</ion-label>
-      </ion-col>
-    </ion-item>
-    <ion-item detail>
-      <ion-col size="3" class="ion-padding-bottom">
-        <strong class="ion-text-uppercase">Factory</strong>
-      </ion-col>
-
-      <ion-col size="5" class="ion-padding">
-        <ion-label>
-          <strong>Audits</strong>
-        </ion-label>
-        <br />
-        <ion-label>50</ion-label>
-      </ion-col>
-
-      <ion-col size="5" class="ion-padding">
-        <ion-label>
-          <strong>Last Audits</strong>
-        </ion-label>
-        <br />
-        <ion-label>19.09.2019</ion-label>
-      </ion-col>
-    </ion-item>
-    <ion-item detail>
-      <ion-col size="3" class="ion-padding-bottom">
-        <strong class="ion-text-uppercase">Customer Service</strong>
-      </ion-col>
-
-      <ion-col size="5" class="ion-padding">
-        <ion-label>
-          <strong>Audits</strong>
-        </ion-label>
-        <br />
-        <ion-label>50</ion-label>
-      </ion-col>
-
-      <ion-col size="5" class="ion-padding">
-        <ion-label>
-          <strong>Last Audits</strong>
-        </ion-label>
-        <br />
-        <ion-label>19.09.2019</ion-label>
-      </ion-col>
-    </ion-item>
-    <ion-item detail>
-      <ion-col size="3" class="ion-padding-bottom">
-        <strong class="ion-text-uppercase">Workshop</strong>
-      </ion-col>
-
-      <ion-col size="5" class="ion-padding">
-        <ion-label>
-          <strong>Audits</strong>
-        </ion-label>
-        <br />
-        <ion-label>50</ion-label>
-      </ion-col>
-
-      <ion-col size="5" class="ion-padding">
-        <ion-label>
-          <strong>Last Audits</strong>
-        </ion-label>
-        <br />
-        <ion-label>19.09.2019</ion-label>
-      </ion-col>
-    </ion-item>
+    <app-audit-item *ngFor="let audit of auditsShort" [auditShortItem]="audit">
+    </app-audit-item>
   </ion-list>
+
 </ion-content>

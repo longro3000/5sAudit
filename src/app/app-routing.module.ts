@@ -2,25 +2,23 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'audits', pathMatch: 'full' },
+  { path: '', redirectTo: 'workspace', pathMatch: 'full' },
 
   {
     path: 'audits',
-
     children: [
 
       {
         path: '',
         loadChildren: './audits/audits.module#AuditsPageModule'
       },
-
       {
         path: ':auditId',
         loadChildren: './audits/audit-detail/audit-detail.module#AuditDetailPageModule'
       }
     ]
   },
-
+  { path: 'workspace', loadChildren: './workspace/workspace.module#WorkspacePageModule' }
 ];
 
 @NgModule({
