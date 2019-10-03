@@ -6,6 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { AuditDetailPage } from './audit-detail.page';
+import { CheckItemListComponent } from './check-item-list/check-item-list.component';
+import { CheckItemComponent } from './check-item-list/check-item/check-item.component';
 
 const routes: Routes = [
   {
@@ -21,6 +23,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [AuditDetailPage]
+  declarations: [AuditDetailPage, CheckItemListComponent, CheckItemComponent]
 })
 export class AuditDetailPageModule {}

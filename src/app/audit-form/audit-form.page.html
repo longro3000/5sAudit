@@ -1,9 +1,143 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>audit-form</ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/audits"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center" style="font-size: 20px"
+      >Audit Form</ion-title
+    >
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <app-audit-phase></app-audit-phase>
+  <ion-row class="ion-padding">
+    <ion-col>
+      <ion-label>
+        <strong>New Audit</strong>
+      </ion-label>
+    </ion-col>
+    <ion-col>
+      <ion-label>
+        <strong>Last Modified:</strong>
+      </ion-label>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-padding">
+    <ion-col>
+      <ion-label>
+        <strong>Workspace A1</strong>
+      </ion-label>
+    </ion-col>
+    <ion-col>
+      <ion-label>
+        <strong>Checked phases:</strong>
+      </ion-label>
+    </ion-col>
+  </ion-row>
+
+  <ion-item-group>
+    <ion-col>
+      <div class="ion-text-center">
+        <h4>SORT</h4>
+      </div>
+    </ion-col>
+
+    <ion-row class="ion-padding" class="ion-text-center">
+      <ion-col size="2">
+        <strong>
+          Check items
+        </strong>
+      </ion-col>
+
+      <ion-col>
+        <strong>
+          Description
+        </strong>
+      </ion-col>
+
+      <ion-col>
+        <strong>
+          Score
+        </strong>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-padding">
+      <ion-col size="2">
+        Item 1
+      </ion-col>
+
+      <ion-col>
+        Are all the tools and equipment located logically in using frequency?
+      </ion-col>
+
+      <ion-col>
+        <ion-radio-group>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-radio mode="md" item-left value="1"></ion-radio>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-radio mode="md" item-left value="2"></ion-radio>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-radio mode="md" item-left value="3"></ion-radio>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-radio mode="md" item-left value="4"></ion-radio>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-radio mode="md" item-left value="5"></ion-radio>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-radio-group>
+      </ion-col>
+    </ion-row>
+  </ion-item-group>
+
+  <ion-item-group>
+    <ion-col>
+      <div class="ion-text-center">
+        <h4>SHINE</h4>
+      </div>
+    </ion-col>
+  </ion-item-group>
+
+  <ion-item-group>
+    <ion-col>
+      <div class="ion-text-center">
+        <h4>SET IN ORDER</h4>
+      </div>
+    </ion-col>
+  </ion-item-group>
+
+  <ion-item-group>
+    <ion-col>
+      <div class="ion-text-center">
+        <h4>STANDARDIZE</h4>
+      </div>
+    </ion-col>
+  </ion-item-group>
+
+  <ion-item-group>
+    <ion-col>
+      <div class="ion-text-center">
+        <h4>SUSTAIN</h4>
+      </div>
+    </ion-col>
+  </ion-item-group>
 </ion-content>

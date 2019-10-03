@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuditsService } from './audits.service';
+import { AuditShort } from './audits.model';
 
 @Component({
   selector: 'app-audits',
@@ -6,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./audits.page.scss'],
 })
 export class AuditsPage implements OnInit {
-
-  constructor() { }
+  auditsShort: AuditShort[];
+  constructor( private auditsService: AuditsService ) {}
 
   ngOnInit() {
+    this.auditsShort = this.auditsService.getAllAuditsShort();
   }
-
 }
