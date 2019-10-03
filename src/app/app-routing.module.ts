@@ -20,6 +20,7 @@ const routes: Routes = [
       }
     ]
   },
+  { path: 'audit-form', loadChildren: './audit-form/audit-form.module#AuditFormPageModule' },
 
 ];
 
