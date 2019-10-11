@@ -18,7 +18,8 @@ const routes: Routes = [
       }
     ]
   },
-  { path: 'workspace', loadChildren: './workspace/workspace.module#WorkspacePageModule' }
+  { path: 'workspace', loadChildren: './workspace/workspace.module#WorkspacePageModule' },
+  { path: 'audit-form', loadChildren: './audit-form/audit-form.module#AuditFormPageModule' }
 ];
 
 @NgModule({

@@ -1,82 +1,80 @@
 <ion-header>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-back-button defaultHref="/audits"></ion-back-button>
-      </ion-buttons>
-      <ion-title class="ion-text-center" style="font-size: 20px">Audit {{ loadedAudit.assessedDate }} Detail</ion-title>
-      <ion-avatar slot="end" class="ion-margin">
-        <img src="http://robohash.org/set_set1/bgset_bg2/kQqaIfGqxsjFoNIT" />
-      </ion-avatar>
-    </ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/workspace"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center" style="font-size: 20px"
+      >Audit {{ loadedAudit.assessedDate }} Detail</ion-title
+    >
+  </ion-toolbar>
 </ion-header>
 <ion-content>
-      <ion-row class="ion-padding">
-        <ion-col>
-          <ion-label><strong>Department Name:</strong></ion-label>
-        </ion-col>
-        <ion-col>
-            {{ loadedAudit.departmentName }}
-        </ion-col>
-      </ion-row>
-      <ion-row class="ion-padding">
-          <ion-col>
-            <ion-label><strong>Comapny Name:</strong></ion-label>
-          </ion-col>
-          <ion-col>
-              {{ loadedAudit.companyName }}
-          </ion-col>
-      </ion-row>
-      <ion-row class="ion-padding">
-          <ion-col>
-            <ion-label><strong>Auditor:</strong></ion-label>
-          </ion-col>
-          <ion-col>
-              {{ loadedAudit.auditorName }}
-          </ion-col>
-      </ion-row>
-      <ion-row class="ion-padding">
-          <ion-col>
-              <ion-label><strong>Additional Infomation:</strong></ion-label>
-          </ion-col>
-          <ion-col>
-              {{ loadedAudit.additionalInfo }}
-          </ion-col>
-      </ion-row>
-      <ion-item>
-      </ion-item>
-      <ion-row class="ion-padding">
-        <strong>Sort</strong>
-        <app-check-item-list 
-          [checkItemList]="loadedAudit.checkItems"
-          phase="SORT"
-        ></app-check-item-list>
-      </ion-row>
-      <ion-row class="ion-padding">
-          <strong>Set In order</strong>
-        <app-check-item-list 
-          [checkItemList]="loadedAudit.checkItems"
-          phase="ORDER"
-        ></app-check-item-list>
-      </ion-row>
-      <ion-row class="ion-padding">
-        <strong>Shine</strong>
-        <app-check-item-list 
-          [checkItemList]="loadedAudit.checkItems"
-          phase="SHINE"
-        ></app-check-item-list>
-      </ion-row>
-      <ion-row class="ion-padding">
-        <strong>Standardize</strong>
-        <app-check-item-list 
-          [checkItemList]="loadedAudit.checkItems"
-          phase="STANDARDIZE"
-          ></app-check-item-list>
-      </ion-row>
-      <ion-row class="ion-padding">
-        <strong>Sustain</strong>
-        <app-check-item-list 
-          [checkItemList]="loadedAudit.checkItems"
-          phase="SUSTAIN"
-        ></app-check-item-list>
-      </ion-row>
+  <ion-row class="ion-padding">
+    <ion-col>
+      <ion-label><strong>Department Name:</strong></ion-label>
+    </ion-col>
+    <ion-col>
+      {{ loadedAudit.departmentName }}
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-padding">
+    <ion-col>
+      <ion-label><strong>Company Name:</strong></ion-label>
+    </ion-col>
+    <ion-col>
+      {{ loadedAudit.companyName }}
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-padding">
+    <ion-col>
+      <ion-label><strong>Auditor:</strong></ion-label>
+    </ion-col>
+    <ion-col>
+      {{ loadedAudit.auditorName }}
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-padding">
+    <ion-col>
+      <ion-label><strong>Additional Infomation:</strong></ion-label>
+    </ion-col>
+    <ion-col>
+      {{ loadedAudit.additionalInfo }}
+    </ion-col>
+  </ion-row>
+  <ion-item> </ion-item>
+  <ion-row class="ion-padding">
+    <strong>Sort</strong>
+    <app-check-item-list
+      [checkItemList]="loadedAudit.checkItems"
+      phase="SORT"
+    ></app-check-item-list>
+  </ion-row>
+  <ion-row class="ion-padding">
+    <strong>Set In order</strong>
+    <app-check-item-list
+      [checkItemList]="loadedAudit.checkItems"
+      phase="ORDER"
+    ></app-check-item-list>
+  </ion-row>
+  <ion-row class="ion-padding">
+    <strong>Shine</strong>
+    <app-check-item-list
+      [checkItemList]="loadedAudit.checkItems"
+      phase="SHINE"
+    ></app-check-item-list>
+  </ion-row>
+  <ion-row class="ion-padding">
+    <strong>Standardize</strong>
+    <app-check-item-list
+      [checkItemList]="loadedAudit.checkItems"
+      phase="STANDARDIZE"
+    ></app-check-item-list>
+  </ion-row>
+  <ion-row class="ion-padding">
+    <strong>Sustain</strong>
+    <app-check-item-list
+      [checkItemList]="loadedAudit.checkItems"
+      phase="SUSTAIN"
+    ></app-check-item-list>
+  </ion-row>
 </ion-content>

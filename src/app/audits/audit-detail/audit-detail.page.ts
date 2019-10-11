@@ -24,7 +24,7 @@ export class AuditDetailPage implements OnInit {
       const auditId = paramMap.get('auditId');
       this.loadedAudit = this.auditsService.getAudit(auditId);
       console.log(this.loadedAudit);
-    })
+    });
   }
 
 }

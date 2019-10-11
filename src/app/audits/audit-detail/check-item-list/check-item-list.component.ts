@@ -18,5 +18,4 @@ export class CheckItemListComponent implements OnInit {
   ngOnInit() {
     this.listByPhase = this.auditDetailService.getCheckItemByPhase(this.phase, this.checkItemList);
   }
-  
 }

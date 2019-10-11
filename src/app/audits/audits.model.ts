@@ -1,7 +1,7 @@
 export interface AuditShort {
     key: string;
     auditorName: string;
-    assessedDate: string;        
+    assessedDate: string;
 }
 export interface CheckItem {
     checkItemID: string;
