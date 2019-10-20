@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { AuditFormService } from './audit-form.service';
+import { AuditQuestion } from './audit-form.model';
 
 @Component({
   selector: 'app-audit-form',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuditFormPage implements OnInit {
 
-  constructor() { }
+  constructor(private auditFormService: AuditFormService) { }
 
   ngOnInit() {
   }
