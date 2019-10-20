@@ -1,3 +1,172 @@
 <ion-content>
-  
+  <ion-item-group>
+    <ion-col>
+      <div class="ion-text-center">
+        <h4>
+          <p style="font-weight: bold;">SORT</p>
+        </h4>
+      </div>
+    </ion-col>
+
+    <ion-row class="ion-padding" class="ion-text-center">
+      <ion-col size="2">
+        <strong>
+          Check items
+        </strong>
+      </ion-col>
+
+      <ion-col>
+        <strong>
+          Description
+        </strong>
+      </ion-col>
+
+      <ion-col>
+        <strong>
+          Score
+        </strong>
+      </ion-col>
+    </ion-row>
+    <app-audit-question
+      *ngFor="let auditQuestionSORT of auditQuestionsSORT"
+      [auditQuestionItem]="auditQuestionSORT"
+    >
+    </app-audit-question>
+
+    <ion-col>
+      <div class="ion-text-center">
+        <h4>
+          <p style="font-weight: bold;">ORDER</p>
+        </h4>
+      </div>
+    </ion-col>
+
+    <ion-row class="ion-padding" class="ion-text-center">
+      <ion-col size="2">
+        <strong>
+          Check items
+        </strong>
+      </ion-col>
+
+      <ion-col>
+        <strong>
+          Description
+        </strong>
+      </ion-col>
+
+      <ion-col>
+        <strong>
+          Score
+        </strong>
+      </ion-col>
+    </ion-row>
+
+    <app-audit-question
+      *ngFor="let auditQuestionORDER of auditQuestionsORDER"
+      [auditQuestionItem]="auditQuestionORDER"
+    >
+    </app-audit-question>
+
+    <ion-col>
+      <div class="ion-text-center">
+        <h4>
+          <p style="font-weight: bold;">SHINE</p>
+        </h4>
+      </div>
+    </ion-col>
+
+    <ion-row class="ion-padding" class="ion-text-center">
+      <ion-col size="2">
+        <strong>
+          Check items
+        </strong>
+      </ion-col>
+
+      <ion-col>
+        <strong>
+          Description
+        </strong>
+      </ion-col>
+
+      <ion-col>
+        <strong>
+          Score
+        </strong>
+      </ion-col>
+    </ion-row>
+
+    <app-audit-question
+      *ngFor="let auditQuestionSHINE of auditQuestionsSHINE"
+      [auditQuestionItem]="auditQuestionSHINE"
+    >
+    </app-audit-question>
+
+    <ion-col>
+      <div class="ion-text-center">
+        <h4>
+          <p style="font-weight: bold;">STANDARDIZE</p>
+        </h4>
+      </div>
+    </ion-col>
+
+    <ion-row class="ion-padding" class="ion-text-center">
+      <ion-col size="2">
+        <strong>
+          Check items
+        </strong>
+      </ion-col>
+
+      <ion-col>
+        <strong>
+          Description
+        </strong>
+      </ion-col>
+
+      <ion-col>
+        <strong>
+          Score
+        </strong>
+      </ion-col>
+    </ion-row>
+
+    <app-audit-question
+      *ngFor="let auditQuestionSTANDARDIZE of auditQuestionsSTANDARDIZE"
+      [auditQuestionItem]="auditQuestionSTANDARDIZE"
+    >
+    </app-audit-question>
+
+    <ion-col>
+      <div class="ion-text-center">
+        <h4>
+          <p style="font-weight: bold;">SUSTAIN</p>
+        </h4>
+      </div>
+    </ion-col>
+
+    <ion-row class="ion-padding" class="ion-text-center">
+      <ion-col size="2">
+        <strong>
+          Check items
+        </strong>
+      </ion-col>
+
+      <ion-col>
+        <strong>
+          Description
+        </strong>
+      </ion-col>
+
+      <ion-col>
+        <strong>
+          Score
+        </strong>
+      </ion-col>
+    </ion-row>
+
+    <app-audit-question
+      *ngFor="let auditQuestionSUSTAIN of auditQuestionsSUSTAIN"
+      [auditQuestionItem]="auditQuestionSUSTAIN"
+    >
+    </app-audit-question>
+  </ion-item-group>
 </ion-content>
