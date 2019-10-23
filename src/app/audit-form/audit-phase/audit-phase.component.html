@@ -1,12 +1,14 @@
-<ion-content>
-  <ion-item-group>
-    <ion-col>
-      <div class="ion-text-center">
-        <h4>
-          <p style="font-weight: bold;">SORT</p>
-        </h4>
-      </div>
-    </ion-col>
+<ion-item-group>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div class="ion-text-center">
+          <h4>
+            <p style="font-weight: bold;">SORT</p>
+          </h4>
+        </div>
+      </ion-col>
+    </ion-row>
 
     <ion-row class="ion-padding" class="ion-text-center">
       <ion-col size="2">
@@ -15,7 +17,7 @@
         </strong>
       </ion-col>
 
-      <ion-col>
+      <ion-col size="5">
         <strong>
           Description
         </strong>
@@ -168,5 +170,9 @@
       [auditQuestionItem]="auditQuestionSUSTAIN"
     >
     </app-audit-question>
-  </ion-item-group>
-</ion-content>
+
+    <div>
+      <ion-button size="block">Submit Form</ion-button>
+    </div>
+  </ion-grid>
+</ion-item-group>
