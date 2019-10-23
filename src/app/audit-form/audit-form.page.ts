@@ -9,7 +9,7 @@ import { AuditQuestion } from './audit-form.model';
 })
 export class AuditFormPage implements OnInit {
 
-  constructor(private auditFormService: AuditFormService) { }
+  constructor() { }
 
   ngOnInit() {
   }

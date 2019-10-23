@@ -9,8 +9,6 @@ import { AuditFormPage } from './audit-form.page';
 import { AuditPhaseComponent } from './audit-phase/audit-phase.component';
 import { AuditQuestionComponent } from './audit-phase/audit-question/audit-question.component';
 
-
-
 const routes: Routes = [
   {
     path: '',

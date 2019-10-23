@@ -1,49 +1,51 @@
-<ion-row class="ion-padding" >
-  <ion-col size="2">
-    <ion-label>
-      {{ auditQuestionItem.checkItem }}
-    </ion-label>
-  </ion-col>
+<ion-grid>
+  <ion-row class="ion-padding">
+    <ion-col size="2">
+      <div class="item-text-nowrap" style="word-wrap: break-word;">
+        {{ auditQuestionItem.checkItem }}
+      </div>
+    </ion-col>
 
-  <ion-col>
-    <ion-label>
-      {{ auditQuestionItem.checkItemDescription }}
-    </ion-label>
-  </ion-col>
+    <ion-col size="5">
+      <div class="item-text-nowrap" style="word-wrap: break-word;">
+        {{ auditQuestionItem.checkItemDescription }}
+      </div>
+    </ion-col>
 
-  <ion-col>
-    <ion-radio-group>
-      <ion-row size="3">
-        <ion-col>
-          <ion-item>
-            <ion-radio mode="md" item-left value="1"></ion-radio>
-          </ion-item>
-        </ion-col>
+    <ion-col>
+      <ion-radio-group>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-radio mode="md" item-left value="1"></ion-radio>
+            </ion-item>
+          </ion-col>
 
-        <ion-col>
-          <ion-item>
-            <ion-radio mode="md" item-left value="2"></ion-radio>
-          </ion-item>
-        </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-radio mode="md" item-left value="2"></ion-radio>
+            </ion-item>
+          </ion-col>
 
-        <ion-col>
-          <ion-item>
-            <ion-radio mode="md" item-left value="3"></ion-radio>
-          </ion-item>
-        </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-radio mode="md" item-left value="3"></ion-radio>
+            </ion-item>
+          </ion-col>
 
-        <ion-col>
-          <ion-item>
-            <ion-radio mode="md" item-left value="4"></ion-radio>
-          </ion-item>
-        </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-radio mode="md" item-left value="4"></ion-radio>
+            </ion-item>
+          </ion-col>
 
-        <ion-col>
-          <ion-item>
-            <ion-radio mode="md" item-left value="5"></ion-radio>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-    </ion-radio-group>
-  </ion-col>
-</ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-radio mode="md" item-left value="5"></ion-radio>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-radio-group>
+    </ion-col>
+  </ion-row>
+</ion-grid>
