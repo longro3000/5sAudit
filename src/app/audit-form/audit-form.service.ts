@@ -1,27 +1,69 @@
 import { Injectable, IterableDiffers } from '@angular/core';
-import AuditQuestionList from './Questions-dumbData';
-import { AuditQuestion } from '../audit-form/audit-form.model';
+import { AuditQuestion, AuditForm, AuditAnswer } from '../audit-form/audit-form.model';
+import * as _ from 'lodash';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuditFormService {
-  private auditQuestions: AuditQuestion[] = AuditQuestionList;
+  private auditQuestions: AuditQuestion[];
+  private auditAnswer: AuditAnswer;
+  private auditForm: AuditForm = {
+    departmentName: 'Research and Development',
+    companyName: 'Fliq',
+    auditorName: 'Lam',
+    checkItemsSend: []
+  };
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+
 
   getAllQuestion() {
-    return [...this.auditQuestions];
+    return this.http.get('http://192.168.1.44:8080/fliq/v3/activequestions');
+
+    // return [...this.auditQuestions];
   }
 
   getAllPhaseNames() {
-    return [...new Set(this.auditQuestions.map(auditQuestion => auditQuestion.auditPhase))];
+    // return [...new Set(this.auditQuestions.map(auditQuestion => auditQuestion.auditPhase))];
   }
 
   getAuditQuestionbyPhaseName(phaseName: string, auditQuestionList: AuditQuestion[]) {
     return [...auditQuestionList.filter(auditQuestion => {
       return auditQuestion.auditPhase === phaseName;
     })];
+  }
+
+  appendNewCheckItem(questionID: number, checkItemAnswer: number) {
+    this.auditAnswer = {
+      questionID,
+      checkItemAnswer
+    };
+    console.log(this.auditAnswer);
+
+    if (_.findIndex(this.auditForm.checkItemsSend, { questionID }) === -1) {
+      this.auditForm.checkItemsSend.push(this.auditAnswer);
+    } else {
+      _.remove(this.auditForm.checkItemsSend, (n) => {
+        return n.questionID === this.auditAnswer.questionID;
+      });
+      this.auditForm.checkItemsSend.push(this.auditAnswer);
+    }
+  }
+
+  onSubmit() {
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+
+
+    this.http.post('http://192.168.1.44:8080/fliq/v3/audits', this.auditForm, { headers })
+      .subscribe(data => {
+        console.log(data);
+      }, error => {
+        console.log(error);
+      });
   }
 }

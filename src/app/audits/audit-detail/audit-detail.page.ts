@@ -10,6 +10,7 @@ import { AuditsService } from '../audits.service';
 })
 export class AuditDetailPage implements OnInit {
   loadedAudit: AuditDetail;
+  auditId: string;
   constructor(
     private activatedRoute: ActivatedRoute,
     private auditsService: AuditsService,
@@ -17,14 +18,11 @@ export class AuditDetailPage implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(paramMap => {
-      if (!paramMap.has('auditId')) {
-          this.router.navigate(['./audits']);
-          return;
-      }
-      const auditId = paramMap.get('auditId');
-      this.loadedAudit = this.auditsService.getAudit(auditId);
-      console.log(this.loadedAudit);
+      this.auditId = paramMap.get('auditId');
+    });
+
+    this.auditsService.getAudit(this.auditId).subscribe(data => {
+      this.loadedAudit = Object.assign(data, this.loadedAudit);
     });
   }
-
 }

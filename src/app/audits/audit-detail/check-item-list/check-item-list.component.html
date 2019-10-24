@@ -1,14 +1,24 @@
-<ion-list>
-  <ion-item>
-    <ion-col>
-      <ion-label><strong>Item</strong></ion-label>
+<ion-grid>
+  <ion-row>
+    <ion-col size="1">
+      <p class="ion-text-center" style="font-weight: bold;">
+        Item
+      </p>
     </ion-col>
-    <ion-col>
-      <ion-label><strong>Description</strong></ion-label>
+    <ion-col >
+      <p class="ion-text-center" style="font-weight: bold;">
+        Description
+      </p>
     </ion-col>
-    <ion-col>
-      <ion-label><strong>Rate</strong></ion-label>
+    <ion-col size="5">
+      <p class="ion-text-center" style="font-weight: bold;">
+        Rate
+      </p>
     </ion-col>
-  </ion-item>
-  <app-check-item *ngFor="let item of listByPhase" [checkItem]="item"></app-check-item>
-</ion-list>
+  </ion-row>
+</ion-grid>
+
+<app-check-item
+  *ngFor="let item of listByPhase"
+  [checkItem]="item"
+></app-check-item>

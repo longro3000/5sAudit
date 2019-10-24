@@ -10,7 +10,7 @@ import { AuditDetailService } from '../audit-detail.service';
 export class CheckItemListComponent implements OnInit {
   @Input() checkItemList: CheckItem[];
   @Input() phase: string;
-  private listByPhase: CheckItem[];
+  public listByPhase: CheckItem[];
   constructor(
     private auditDetailService: AuditDetailService
   ) { }

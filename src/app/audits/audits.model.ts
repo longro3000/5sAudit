@@ -1,10 +1,11 @@
 export interface AuditShort {
-    key: string;
+    key: number;
     auditorName: string;
     assessedDate: string;
 }
 export interface CheckItem {
-    checkItemID: string;
+    questionID: number;
+    checkItemID: number;
     checkItem: string;
     checkItemDescription: string;
     checkItemAnswer: string;
@@ -12,11 +13,10 @@ export interface CheckItem {
     status: string;
 }
 export interface AuditDetail {
-    key: string;
+    key: number;
     departmentName: string;
     companyName: string;
     auditorName: string;
     assessedDate: string;
-    additionalInfo: string;
     checkItems: CheckItem[];
 }

@@ -1,49 +1,27 @@
 import { Injectable } from '@angular/core';
-import Audits from './Audits-DumpData';
 import { AuditShort, AuditDetail, CheckItem } from './audits.model';
+import { HttpClient } from '@angular/common/http';
+import { AuditDetailPage } from './audit-detail/audit-detail.page';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuditsService {
-  private auditsShort: AuditShort[] = [
-    {
-      "key": "1",
-      "auditorName": "Minh Nguyen Bui",
-      "assessedDate": "2016-02-28"
-    },
-    {
-      "key": "2",
-      "auditorName": "Chanh Lam Nguyen",
-      "assessedDate": "2016-02-28"
-    },
-    {
-      "key": "3",
-      "auditorName": "Long Vu Pham",
-      "assessedDate": "2016-02-28"
-    },
-    {
-      "key": "4",
-      "auditorName": "Tuan Hiep Duong",
-      "assessedDate": "2016-02-28"
-    }
-  ];
+  private auditsShort: AuditShort[];
 
-  private audits: AuditDetail[] = Audits;
+  private audits: AuditDetail[];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getAllAuditsShort() {
-    return [...this.auditsShort];
+    return this.http.get('http://192.168.1.44:8080/fliq/v3/shortaudits');
   }
 
   getAllAudits() {
-    
   }
 
-  getAudit(auditId: string) {
-    return {...this.audits.find(audit => {
-      return audit.key === auditId;
-    })};
+  getAudit = (auditId: string) => {
+     return this.http.get(`http://192.168.1.44:8080/fliq/v3/audits/${auditId}`);
   }
 }
