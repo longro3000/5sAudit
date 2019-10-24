@@ -6,42 +6,46 @@
       </div>
     </ion-col>
 
-    <ion-col size="5">
+    <ion-col size="5" size-sm="4">
       <div class="item-text-nowrap" style="word-wrap: break-word;">
         {{ auditQuestionItem.checkItemDescription }}
       </div>
     </ion-col>
 
     <ion-col>
-      <ion-radio-group>
+      <ion-radio-group
+        style=" border-bottom-color: transparent !important;
+      box-shadow: none !important;" 
+        (ionChange) = "onChangeHandler($event)"
+      >
         <ion-row>
           <ion-col>
             <ion-item>
-              <ion-radio mode="md" item-left value="1"></ion-radio>
+              <ion-radio mode="md" item-left value=0></ion-radio>
             </ion-item>
           </ion-col>
 
           <ion-col>
             <ion-item>
-              <ion-radio mode="md" item-left value="2"></ion-radio>
+              <ion-radio mode="md" item-left value=1></ion-radio>
             </ion-item>
           </ion-col>
 
           <ion-col>
             <ion-item>
-              <ion-radio mode="md" item-left value="3"></ion-radio>
+              <ion-radio mode="md" item-left value=2></ion-radio>
             </ion-item>
           </ion-col>
 
           <ion-col>
             <ion-item>
-              <ion-radio mode="md" item-left value="4"></ion-radio>
+              <ion-radio mode="md" item-left value=3></ion-radio>
             </ion-item>
           </ion-col>
 
           <ion-col>
             <ion-item>
-              <ion-radio mode="md" item-left value="5"></ion-radio>
+              <ion-radio mode="md" item-left value=4></ion-radio>
             </ion-item>
           </ion-col>
         </ion-row>

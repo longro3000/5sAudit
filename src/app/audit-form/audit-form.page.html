@@ -10,6 +10,7 @@
 </ion-header>
 
 <ion-content>
+  <form (ngSubmit)="onSubmit()">
   <ion-row class="ion-padding">
     <ion-col>
       <ion-label>
@@ -35,4 +36,8 @@
     </ion-col>
   </ion-row>
   <app-audit-phase></app-audit-phase>
+  <div>
+      <ion-button type="submit" size="block">Submit Form</ion-button>
+  </div>
+  </form>
 </ion-content>

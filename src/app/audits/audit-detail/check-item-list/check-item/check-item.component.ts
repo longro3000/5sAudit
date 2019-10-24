@@ -10,6 +10,7 @@ export class CheckItemComponent implements OnInit {
   @Input() checkItem: CheckItem;
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
 }

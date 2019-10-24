@@ -14,4 +14,9 @@ export class AuditQuestionComponent implements OnInit {
   ngOnInit() {
   }
 
+  onChangeHandler(event) {
+    const value = +event.target.value;
+    this.auditFormService.appendNewCheckItem(this.auditQuestionItem.questionID, value);
+  }
+
 }

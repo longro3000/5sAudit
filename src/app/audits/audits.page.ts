@@ -12,6 +12,9 @@ export class AuditsPage implements OnInit {
   constructor( private auditsService: AuditsService ) {}
 
   ngOnInit() {
-    this.auditsShort = this.auditsService.getAllAuditsShort();
+    this.auditsService.getAllAuditsShort().subscribe(data => {
+      this.auditsShort = Object.assign(data, this.auditsShort);
+      console.log(this.auditsShort);
+    });
   }
 }
