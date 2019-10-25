@@ -14,20 +14,23 @@
   <ion-row class="ion-padding">
     <ion-col>
       <ion-label>
-        <strong>New Audit</strong>
+        <strong>Company Name:</strong>
+        <ion-input class="input" type="text" [(ngModel)]="auditor.companyName" name="company"></ion-input>
       </ion-label>
     </ion-col>
     <ion-col>
       <ion-label>
-        <strong>Last Modified:</strong>
+        <strong>Auditor Name:</strong>
+        <ion-input class="input" type="text" [(ngModel)]="auditor.name" name="auditor"></ion-input>
       </ion-label>
     </ion-col>
   </ion-row>
   <ion-row class="ion-padding">
     <ion-col>
       <ion-label>
-        <strong>Workspace A1</strong>
+        <strong>Department Name:</strong>
       </ion-label>
+        <ion-input class="input" type="text" [(ngModel)]="auditor.departmentName" name="department"></ion-input>
     </ion-col>
     <ion-col>
       <ion-label>

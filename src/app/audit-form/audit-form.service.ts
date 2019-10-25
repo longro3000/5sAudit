@@ -54,10 +54,14 @@ export class AuditFormService {
     }
   }
 
-  onSubmit() {
+  onSubmit(auditor: any) {
+
+    this.auditForm.auditorName = auditor.auditorName;
+    this.auditForm.departmentName = auditor.departmentName;
+    this.auditForm.companyName = auditor.companyName;
+
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
-
 
     this.http.post('http://192.168.1.44:8080/fliq/v3/audits', this.auditForm, { headers })
       .subscribe(data => {

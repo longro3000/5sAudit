@@ -9,13 +9,13 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./audit-form.page.scss'],
 })
 export class AuditFormPage implements OnInit {
-
+  private auditor = {};
   constructor(private auditFormService: AuditFormService) { }
 
   ngOnInit() {
     
   }
   onSubmit() {
-    this.auditFormService.onSubmit();
+    this.auditFormService.onSubmit(this.auditor);
   }
 }
