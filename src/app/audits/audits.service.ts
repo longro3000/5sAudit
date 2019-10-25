@@ -15,13 +15,13 @@ export class AuditsService {
   constructor(private http: HttpClient) { }
 
   getAllAuditsShort() {
-    return this.http.get('http://192.168.1.44:8080/fliq/v3/shortaudits');
+    return this.http.get('http://10.15.10.67:8080/fliq/v3/shortaudits');
   }
 
   getAllAudits() {
   }
 
   getAudit = (auditId: string) => {
-     return this.http.get(`http://192.168.1.44:8080/fliq/v3/audits/${auditId}`);
+     return this.http.get(`http://10.15.10.67:8080/fliq/v3/audits/${auditId}`);
   }
 }

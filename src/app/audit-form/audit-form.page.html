@@ -11,36 +11,51 @@
 
 <ion-content>
   <form (ngSubmit)="onSubmit()">
-  <ion-row class="ion-padding">
-    <ion-col>
-      <ion-label>
-        <strong>Company Name:</strong>
-        <ion-input class="input" type="text" [(ngModel)]="auditor.companyName" name="company"></ion-input>
-      </ion-label>
-    </ion-col>
-    <ion-col>
-      <ion-label>
-        <strong>Auditor Name:</strong>
-        <ion-input class="input" type="text" [(ngModel)]="auditor.name" name="auditor"></ion-input>
-      </ion-label>
-    </ion-col>
-  </ion-row>
-  <ion-row class="ion-padding">
-    <ion-col>
-      <ion-label>
-        <strong>Department Name:</strong>
-      </ion-label>
-        <ion-input class="input" type="text" [(ngModel)]="auditor.departmentName" name="department"></ion-input>
-    </ion-col>
-    <ion-col>
-      <ion-label>
-        <strong>Checked phases:</strong>
-      </ion-label>
-    </ion-col>
-  </ion-row>
-  <app-audit-phase></app-audit-phase>
-  <div>
+    <ion-row class="ion-padding">
+      <ion-col>
+        <ion-label>
+          <strong>Company Name:</strong>
+          <ion-input
+            class="input"
+            type="text"
+            [(ngModel)]="auditor.companyName"
+            name="companyName"
+          ></ion-input>
+        </ion-label>
+      </ion-col>
+      <ion-col>
+        <ion-label>
+          <strong>Auditor Name:</strong>
+          <ion-input
+            class="input"
+            type="text"
+            [(ngModel)]="auditor.auditorName"
+            name="auditorName"
+          ></ion-input>
+        </ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-padding">
+      <ion-col>
+        <ion-label>
+          <strong>Department Name:</strong>
+        </ion-label>
+        <ion-input
+          class="input"
+          type="text"
+          [(ngModel)]="auditor.departmentName"
+          name="departmentName"
+        ></ion-input>
+      </ion-col>
+      <ion-col>
+        <ion-label>
+          <strong>Checked phases:</strong>
+        </ion-label>
+      </ion-col>
+    </ion-row>
+    <app-audit-phase></app-audit-phase>
+    <div>
       <ion-button type="submit" size="block">Submit Form</ion-button>
-  </div>
+    </div>
   </form>
 </ion-content>

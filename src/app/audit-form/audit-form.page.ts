@@ -13,7 +13,7 @@ export class AuditFormPage implements OnInit {
   constructor(private auditFormService: AuditFormService) { }
 
   ngOnInit() {
-    
+
   }
   onSubmit() {
     this.auditFormService.onSubmit(this.auditor);
