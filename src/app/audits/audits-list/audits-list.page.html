@@ -1,0 +1,28 @@
+<ion-content>
+    <ion-list>
+        <ion-item>
+          <ion-col size="5">
+            <ion-label class="ion-padding-top ion-padding-bottom">
+              <strong>Audit Date</strong>
+            </ion-label>
+          </ion-col>
+          <ion-col size-xs="7">
+            <ion-label class="ion-padding-top ion-padding-bottom">
+              <strong>Auditors</strong>
+            </ion-label>
+          </ion-col>
+          <ion-col size-xs="3" slot="end">
+            <ion-label class="ion-padding-top ion-padding-bottom">
+              <strong>Average Score</strong>
+            </ion-label>
+          </ion-col>
+        </ion-item>
+      <app-audit-item *ngFor="let audit of auditsShort" [auditShortItem]="audit">
+      </app-audit-item>
+      </ion-list>
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button detail [routerLink]="['/audit-form']">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+</ion-fab>
+</ion-content>

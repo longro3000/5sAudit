@@ -2,6 +2,7 @@ export interface AuditShort {
     key: number;
     auditorName: string;
     assessedDate: string;
+    averageScore: number;
 }
 export interface CheckItem {
     questionID: number;

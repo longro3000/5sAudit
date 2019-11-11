@@ -8,17 +8,12 @@ import { AuditDetailPage } from './audit-detail/audit-detail.page';
   providedIn: 'root'
 })
 export class AuditsService {
-  private auditsShort: AuditShort[];
-
-  private audits: AuditDetail[];
 
   constructor(private http: HttpClient) { }
 
-  getAllAuditsShort() {
-    return this.http.get('http://10.15.10.67:8080/fliq/v3/shortaudits');
-  }
+  getInitialAuditsShort(pageNumber: number, pageSize: number) {
+    return this.http.get(`https://anypoint.mulesoft.com/mocking/api/v1/links/a6af0acb-c859-4243-aa67-515363d103c0/fliq/v3/shortaudits?pageNumber=${pageNumber}&pageSize=${pageSize}`);
 
-  getAllAudits() {
   }
 
   getAudit = (auditId: string) => {
