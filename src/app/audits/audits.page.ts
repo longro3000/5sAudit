@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuditsService } from './audits.service';
 import { AuditShort } from './audits.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-audits',
@@ -8,13 +9,13 @@ import { AuditShort } from './audits.model';
   styleUrls: ['./audits.page.scss'],
 })
 export class AuditsPage implements OnInit {
+  private auditShortSubscription: Subscription;
   auditsShort: AuditShort[];
-  constructor( private auditsService: AuditsService ) {}
+  constructor(private auditsService: AuditsService) { }
 
   ngOnInit() {
-    this.auditsService.getAllAuditsShort().subscribe(data => {
+    this.auditShortSubscription = this.auditsService.getAllAuditsShort().subscribe(data => {
       this.auditsShort = Object.assign(data, this.auditsShort);
-      console.log(this.auditsShort);
     });
   }
 }

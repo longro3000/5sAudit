@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AuditShort, AuditDetail, CheckItem } from './audits.model';
 import { HttpClient } from '@angular/common/http';
-import { AuditDetailPage } from './audit-detail/audit-detail.page';
 
 
 @Injectable({
@@ -15,13 +14,14 @@ export class AuditsService {
   constructor(private http: HttpClient) { }
 
   getAllAuditsShort() {
-    return this.http.get('http://10.15.10.67:8080/fliq/v3/shortaudits');
+    return this.http.get('https://anypoint.mulesoft.com/mocking/api/v1/links/a6af0acb-c859-4243-aa67-515363d103c0/fliq/v3/shortaudits');
   }
 
   getAllAudits() {
   }
 
   getAudit = (auditId: string) => {
-     return this.http.get(`http://10.15.10.67:8080/fliq/v3/audits/${auditId}`);
+    // tslint:disable-next-line: max-line-length
+    return this.http.get(`https://anypoint.mulesoft.com/mocking/api/v1/links/a6af0acb-c859-4243-aa67-515363d103c0/fliq/v3/audits/${auditId}`);
   }
 }
