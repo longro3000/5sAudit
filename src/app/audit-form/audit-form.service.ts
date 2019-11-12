@@ -42,7 +42,6 @@ export class AuditFormService {
       questionID,
       checkItemAnswer
     };
-    console.log(this.auditAnswer);
 
     if (_.findIndex(this.auditForm.checkItemsSend, { questionID }) === -1) {
       this.auditForm.checkItemsSend.push(this.auditAnswer);
