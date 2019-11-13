@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartData, AuditShort } from '../audits.model';
-import { AuditsService } from '../audits.service';
-import { Observable } from 'rxjs';
+import { AuditsGraphService } from './audits-graph.service';
 
 @Component({
   selector: 'app-audits-graph',
@@ -9,7 +8,6 @@ import { Observable } from 'rxjs';
   styleUrls: ['./audits-graph.page.scss'],
 })
 export class AuditsGraphPage implements OnInit {
-  auditsShort: AuditShort[];
   auditsAverageChart: ChartData[];
   multi: any[];
 
@@ -28,15 +26,17 @@ export class AuditsGraphPage implements OnInit {
   colorScheme = {
     domain: ['#3880FF']
   };
-  constructor(private auditsService: AuditsService) { }
+  constructor(private auditsGraphService: AuditsGraphService) { }
 
   ngOnInit() {
-    this.auditsService.auditShort.subscribe(data => {
-      this.auditsShort = data;
-      this.auditsAverageChart = this.auditsService.getAuditsAverageChart(this.auditsShort);
-    });
+    this.auditsGraphService.barChartData.subscribe(data => {
+      this.auditsAverageChart = data;
+    })
   }
 
+  ionViewWillEnter() {
+    this.auditsGraphService.getAuditsBarGraphData(1, 10).subscribe();
+ }
 
   onSelect(event) {
     console.log(event);

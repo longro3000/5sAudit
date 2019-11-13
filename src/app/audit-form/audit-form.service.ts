@@ -22,7 +22,7 @@ export class AuditFormService {
 
 
   getAllQuestion() {
-    return this.http.get('https://anypoint.mulesoft.com/mocking/api/v1/links/a6af0acb-c859-4243-aa67-515363d103c0/fliq/v3/activequestions');
+    return this.http.get('http://192.168.0.20:8080/fliq/v3/activequestions');
 
   }
 
@@ -60,8 +60,8 @@ export class AuditFormService {
 
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
-
-    this.http.post('https://anypoint.mulesoft.com/mocking/api/v1/links/2db068de-a466-426c-b3ad-7d6d433c4cf1/fliq/v3/audits', this.auditForm, { headers })
+    console.log(this.auditForm);
+    this.http.post<AuditForm>('http://192.168.0.20:8080/fliq/v3/audits', this.auditForm, { headers })
       .subscribe(data => {
         console.log(data);
       }, error => {

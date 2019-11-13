@@ -18,7 +18,7 @@ export class AuditDetailService {
   }
 
   getAudit = (auditId: string) => {
-    return this.http.get<AuditDetail>(`https://anypoint.mulesoft.com/mocking/api/v1/links/a6af0acb-c859-4243-aa67-515363d103c0/fliq/v3/audits/${auditId}`)
+    return this.http.get<AuditDetail>(`http://192.168.0.20:8080/fliq/v3/audits/${auditId}`)
             .pipe(tap(Data => {
               return Data;
             }));

@@ -3,7 +3,6 @@ import { AuditShort, AuditDetail, CheckItem, ChartData } from './audits.model';
 import { HttpClient } from '@angular/common/http';
 import { AuditDetailPage } from './audit-detail/audit-detail.page';
 import { Observable, BehaviorSubject } from 'rxjs';
-import * as _ from 'lodash';
 import { tap } from 'rxjs/operators';
 
 
@@ -19,24 +18,13 @@ export class AuditsService {
   get auditShort() {
     return this._auditsShort.asObservable();
   }
-  fetchingData(api: string) {
-    return this.http.get(api);
-  }
 
   getInitialAuditsShort(pageNumber: number, pageSize: number) {
     return this.http.get<AuditShort[]>(`https://anypoint.mulesoft.com/mocking/api/v1/links/97b4576d-d8e1-4867-bc37-c6c0c9877aec/fliq/v3/shortaudits?pageNumber=${pageNumber}&pageSize=${pageSize}`)
       .pipe(tap(newAuditShorts => {
         this._auditsShort.next(newAuditShorts);
       }));
-
+      //https://anypoint.mulesoft.com/mocking/api/v1/links/97b4576d-d8e1-4867-bc37-c6c0c9877aec/fliq/v3/shortaudits
+      //http://192.168.0.20:8080/fliq/v3/shortaudits
   }
-
-
-  getAuditsAverageChart(audits: AuditShort[]) {
-    audits.map((audit: AuditShort) => {
-        this.barChartData.push({ key: audit.key, name: audit.assessedDate, value: audit.averageScore });
-    });
-    return this.barChartData;
-  }
-
 }

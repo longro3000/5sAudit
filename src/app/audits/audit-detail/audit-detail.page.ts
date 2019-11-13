@@ -27,6 +27,5 @@ export class AuditDetailPage implements OnInit {
         this.isLoading = false;
       });
     });
-
   }
 }
