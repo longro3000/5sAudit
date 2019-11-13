@@ -6,6 +6,6 @@
       <p> {{ auditShortItem.auditorName }}</p>
     </ion-col>
     <ion-col size-xs="3" slot="end">
-      <ion-text color="success">Completed</ion-text>
+      <ion-text [color]="color">{{ auditShortItem.averageScore }}</ion-text>
     </ion-col>
 </ion-item>

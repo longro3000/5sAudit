@@ -11,10 +11,11 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
+import { AuditsPage } from './audits/audits.page';
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, AuditsPage],
   entryComponents: [],
   imports: [BrowserModule, HttpClientModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [
