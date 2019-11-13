@@ -22,13 +22,12 @@ export class AuditFormService {
 
 
   getAllQuestion() {
-    return this.http.get('https://anypoint.mulesoft.com/mocking/api/v1/links/2db068de-a466-426c-b3ad-7d6d433c4cf1/fliq/v3/activequestions');
+    return this.http.get('https://anypoint.mulesoft.com/mocking/api/v1/links/a6af0acb-c859-4243-aa67-515363d103c0/fliq/v3/activequestions');
 
-    // return [...this.auditQuestions];
   }
 
   getAllPhaseNames() {
-    // return [...new Set(this.auditQuestions.map(auditQuestion => auditQuestion.auditPhase))];
+  
   }
 
   getAuditQuestionbyPhaseName(phaseName: string, auditQuestionList: AuditQuestion[]) {
@@ -42,7 +41,6 @@ export class AuditFormService {
       questionID,
       checkItemAnswer
     };
-    console.log(this.auditAnswer);
 
     if (_.findIndex(this.auditForm.checkItemsSend, { questionID }) === -1) {
       this.auditForm.checkItemsSend.push(this.auditAnswer);
@@ -63,7 +61,6 @@ export class AuditFormService {
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
 
-    // tslint:disable-next-line: max-line-length
     this.http.post('https://anypoint.mulesoft.com/mocking/api/v1/links/2db068de-a466-426c-b3ad-7d6d433c4cf1/fliq/v3/audits', this.auditForm, { headers })
       .subscribe(data => {
         console.log(data);

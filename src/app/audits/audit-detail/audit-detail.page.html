@@ -1,19 +1,19 @@
 <div text-center *ngIf="isLoading">
   <ion-spinner color="primary"></ion-spinner>
 </div>
-<div *ngIf="!isLoading">
-  <ion-header>
-    <ion-toolbar color="primary">
-      <ion-buttons slot="start">
-        <ion-back-button defaultHref="/workspace"></ion-back-button>
-      </ion-buttons>
-      <ion-title class="ion-text-center" style="font-size: 20px"
-        >Audit {{ loadedAudit.assessedDate }} Detail</ion-title
-      >
-    </ion-toolbar>
-  </ion-header>
+<ion-header *ngIf="!isLoading">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/workspace"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center" style="font-size: 20px"
+      >Audit {{ loadedAudit.assessedDate }} Detail</ion-title
+    >
+  </ion-toolbar>
+</ion-header>
 
-  <ion-content>
+<ion-content>
+  <div *ngIf="!isLoading">
     <ion-grid>
       <ion-row class="ion-padding">
         <ion-col>
@@ -112,5 +112,5 @@
         phase="SUSTAIN"
       ></app-check-item-list>
     </ion-grid>
-  </ion-content>
-</div>
+  </div>
+</ion-content>

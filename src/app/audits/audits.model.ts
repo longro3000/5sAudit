@@ -21,3 +21,9 @@ export interface AuditDetail {
     assessedDate: string;
     checkItems: CheckItem[];
 }
+
+export interface ChartData {
+    key: number;
+    name: string;
+    value: number;
+}

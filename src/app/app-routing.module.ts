@@ -22,13 +22,13 @@ const routes: Routes = [
             path: '',
             redirectTo: '/audits/List',
             pathMatch: 'full'
-          },
-          {
-            path: 'List/:auditId',
-            loadChildren: './audits/audit-detail/audit-detail.module#AuditDetailPageModule'
-          }    
+          }
     ],
   },
+  {
+    path: 'audits/List/:auditId',
+    loadChildren: './audits/audit-detail/audit-detail.module#AuditDetailPageModule'
+  },   
   { path: 'workspace', loadChildren: './workspace/workspace.module#WorkspacePageModule' },
   { path: 'audit-form', loadChildren: './audit-form/audit-form.module#AuditFormPageModule' }
 ];
