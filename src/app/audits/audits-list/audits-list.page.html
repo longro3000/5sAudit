@@ -19,7 +19,14 @@
         </ion-item>
       <app-audit-item *ngFor="let audit of auditsShort" [auditShortItem]="audit">
       </app-audit-item>
-      </ion-list>
+    </ion-list>
+    
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="Loading more data...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button detail [routerLink]="['/new-audit']">
         <ion-icon name="add"></ion-icon>

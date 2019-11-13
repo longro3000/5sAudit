@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuditShort } from '../audits.model';
 import { AuditsService } from '../audits.service';
+import { IonInfiniteScroll } from '@ionic/angular';
 
 @Component({
   selector: 'app-audits-list',
@@ -9,6 +10,9 @@ import { AuditsService } from '../audits.service';
 })
 export class AuditsListPage implements OnInit {
 
+  @ViewChild(IonInfiniteScroll, {static: false}) infiniteScroll: IonInfiniteScroll;
+  counter: number = 14;
+  page: number = 0;
   auditsShort: AuditShort[];
   constructor( private auditsService: AuditsService ) {}
 
@@ -18,8 +22,21 @@ export class AuditsListPage implements OnInit {
     });
   }
 
+  
+  loadData(event) {
+    setTimeout(() => {
+      this.page++;
+      this.auditsService.getInitialAuditsShort(this.page, 10).subscribe();
+      event.target.complete();
+        // App logic to determine if all data is loaded
+        // and disable the infinite scroll
+        if (this.auditsShort.length == 50) {
+          event.target.disabled = true;
+        }}, 500);
+  }
+
   ionViewWillEnter() {
-    this.auditsService.getInitialAuditsShort(1, 10).subscribe();
+    this.auditsService.getInitialAuditsShort(this.page, 14).subscribe();
   }
 
 }
