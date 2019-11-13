@@ -15,7 +15,7 @@ export class AuditsListPage implements OnInit {
   ngOnInit() {
     this.auditsService.auditShort.subscribe(data => {
       this.auditsShort = data;
-    })
+    });
   }
 
   ionViewWillEnter() {

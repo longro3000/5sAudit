@@ -11,26 +11,26 @@ const routes: Routes = [
     component: AuditsPage,
     children: [
           {
-            path: 'List',
+            path: 'list',
             loadChildren: './audits/audits-list/audits-list.module#AuditsListPageModule'
           },
           {
-            path: 'Graph',
+            path: 'graph',
             loadChildren: './audits/audits-graph/audits-graph.module#AuditsGraphPageModule'
           },
           {
             path: '',
-            redirectTo: '/audits/List',
+            redirectTo: '/audits/list',
             pathMatch: 'full'
           }
     ],
   },
   {
-    path: 'audits/List/:auditId',
+    path: 'audits/list/:auditId',
     loadChildren: './audits/audit-detail/audit-detail.module#AuditDetailPageModule'
   },   
   { path: 'workspace', loadChildren: './workspace/workspace.module#WorkspacePageModule' },
-  { path: 'audit-form', loadChildren: './audit-form/audit-form.module#AuditFormPageModule' }
+  { path: 'new-audit', loadChildren: './audit-form/audit-form.module#AuditFormPageModule' }
 ];
 
 @NgModule({

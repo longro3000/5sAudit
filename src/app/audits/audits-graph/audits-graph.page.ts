@@ -31,14 +31,12 @@ export class AuditsGraphPage implements OnInit {
   constructor(private auditsService: AuditsService) { }
 
   ngOnInit() {
-    this.auditsService.getInitialAuditsShort(1, 10).subscribe(data => {
-      this.auditsShort = Object.assign(data, this.auditsShort);
-      console.log(this.auditsShort);
+    this.auditsService.auditShort.subscribe(data => {
+      this.auditsShort = data;
       this.auditsAverageChart = this.auditsService.getAuditsAverageChart(this.auditsShort);
     });
-    
-
   }
+
 
   onSelect(event) {
     console.log(event);

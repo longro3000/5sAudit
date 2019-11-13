@@ -11,7 +11,7 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuditsService {
-  private barChartData: ChartData[];
+  private barChartData: ChartData[] = [];
   private _auditsShort = new BehaviorSubject<AuditShort[]>([]);
 
   constructor(private http: HttpClient) { }
@@ -24,7 +24,7 @@ export class AuditsService {
   }
 
   getInitialAuditsShort(pageNumber: number, pageSize: number) {
-    return this.http.get<AuditShort[]>(`https://anypoint.mulesoft.com/mocking/api/v1/links/a6af0acb-c859-4243-aa67-515363d103c0/fliq/v3/shortaudits?pageNumber=${pageNumber}&pageSize=${pageSize}`)
+    return this.http.get<AuditShort[]>(`https://anypoint.mulesoft.com/mocking/api/v1/links/97b4576d-d8e1-4867-bc37-c6c0c9877aec/fliq/v3/shortaudits?pageNumber=${pageNumber}&pageSize=${pageSize}`)
       .pipe(tap(newAuditShorts => {
         this._auditsShort.next(newAuditShorts);
       }));
@@ -33,10 +33,9 @@ export class AuditsService {
 
 
   getAuditsAverageChart(audits: AuditShort[]) {
-    _.map(audits, (audit: AuditShort) => {
-      return [...this.barChartData, { key: audit.key, name: audit.assessedDate, value: audit.averageScore}];
+    audits.map((audit: AuditShort) => {
+        this.barChartData.push({ key: audit.key, name: audit.assessedDate, value: audit.averageScore });
     });
-
     return this.barChartData;
   }
 

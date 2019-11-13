@@ -14,4 +14,9 @@
     (select)="onSelect($event)"
   >
   </ngx-charts-bar-vertical>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button detail [routerLink]="['/new-audit']">
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+  </ion-fab>
 </ion-content>
