@@ -9,6 +9,7 @@ import { AuditsGraphService } from './audits-graph.service';
 })
 export class AuditsGraphPage implements OnInit {
   auditsAverageChart: ChartData[];
+  value: number;
   multi: any[];
 
   view: any[] = [700, 400];
@@ -19,9 +20,9 @@ export class AuditsGraphPage implements OnInit {
   gradient = false;
   showLegend = true;
   showXAxisLabel = true;
-  xAxisLabel = 'Average Score';
+  xAxisLabel = 'Audits';
   showYAxisLabel = true;
-  yAxisLabel = 'Audits';
+  yAxisLabel = 'Average Score';
 
   colorScheme = {
     domain: ['#3880FF']
@@ -35,8 +36,14 @@ export class AuditsGraphPage implements OnInit {
   }
 
   ionViewWillEnter() {
-    this.auditsGraphService.getAuditsBarGraphData(1, 10).subscribe();
+    this.auditsGraphService.getAuditsBarGraphData(0, this.value).subscribe();
  }
+
+ onChangeHandler(event) {
+   this.value = +event.target.value;
+   this.auditsGraphService.getAuditsBarGraphData(0, this.value).subscribe();
+}
+
 
   onSelect(event) {
     console.log(event);

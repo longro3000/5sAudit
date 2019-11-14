@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AuditsService } from './audits.service';
 import { AuditShort } from './audits.model';
 import { Subscription } from 'rxjs';

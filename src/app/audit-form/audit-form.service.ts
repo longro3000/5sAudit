@@ -11,7 +11,7 @@ export class AuditFormService {
   private auditQuestions: AuditQuestion[];
   private auditAnswer: AuditAnswer;
   private auditForm: AuditForm = {
-    departmentName: 'Research and Development',
+    departmentName: 'Warehouse',
     companyName: 'Fliq',
     auditorName: 'Lam',
     checkItemsSend: []
@@ -55,8 +55,6 @@ export class AuditFormService {
   onSubmit(auditor: any) {
 
     this.auditForm.auditorName = auditor.auditorName;
-    this.auditForm.departmentName = auditor.departmentName;
-    this.auditForm.companyName = auditor.companyName;
 
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
