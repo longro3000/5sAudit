@@ -18,16 +18,21 @@ export class AuditDetailService {
   }
 
   getStat = (auditId: string) => {
-    return this.http.get<AuditStat>(`http://192.168.0.20:8080/fliq/v3/stat/${auditId}`)
+    return this.http.get<AuditStat>(`https://anypoint.mulesoft.com/mocking/api/v1/links/97b4576d-d8e1-4867-bc37-c6c0c9877aec/fliq/v3/stat/${auditId}`)
           .pipe(tap(data => {
             return data;
           }));
+          //https://anypoint.mulesoft.com/mocking/api/v1/links/97b4576d-d8e1-4867-bc37-c6c0c9877aec/fliq/v3/stat/
+          //http://192.168.0.20:8080/fliq/v3/stat/
   }
   getAudit = (auditId: string) => {
-    return this.http.get<AuditDetail>(`http://192.168.0.20:8080/fliq/v3/audits/${auditId}`)
+    return this.http.get<AuditDetail>(`https://anypoint.mulesoft.com/mocking/api/v1/links/97b4576d-d8e1-4867-bc37-c6c0c9877aec/fliq/v3/audits/${auditId}`)
             .pipe(tap(Data => {
               return Data;
             }));
+
+            //https://anypoint.mulesoft.com/mocking/api/v1/links/97b4576d-d8e1-4867-bc37-c6c0c9877aec/fliq/v3/audits/
+            //http://192.168.0.20:8080/fliq/v3/audits/
  }
 
 }
