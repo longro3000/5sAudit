@@ -27,3 +27,12 @@ export interface ChartData {
     name: string;
     value: number;
 }
+export interface phaseScore {
+    auditPhase: string,
+    score: number
+}
+
+export interface AuditStat {
+    key: number,
+    phaseScores: phaseScore[]
+}

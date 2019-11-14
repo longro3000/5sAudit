@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { AuditShort, AuditDetail, CheckItem, ChartData } from '../audits.model';
+import { AuditShort, AuditDetail, CheckItem, ChartData, AuditStat } from '../audits.model';
 import {tap} from 'rxjs/operators';
 
 @Injectable({
@@ -17,6 +17,12 @@ export class AuditDetailService {
       })];
   }
 
+  getStat = (auditId: string) => {
+    return this.http.get<AuditStat>(`http://192.168.0.20:8080/fliq/v3/stat/${auditId}`)
+          .pipe(tap(data => {
+            return data;
+          }));
+  }
   getAudit = (auditId: string) => {
     return this.http.get<AuditDetail>(`http://192.168.0.20:8080/fliq/v3/audits/${auditId}`)
             .pipe(tap(Data => {
