@@ -26,10 +26,6 @@ export class AuditFormService {
 
   }
 
-  getAllPhaseNames() {
-  
-  }
-
   getAuditQuestionbyPhaseName(phaseName: string, auditQuestionList: AuditQuestion[]) {
     return [...auditQuestionList.filter(auditQuestion => {
       return auditQuestion.auditPhase === phaseName;

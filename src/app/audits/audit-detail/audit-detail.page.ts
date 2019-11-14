@@ -21,7 +21,7 @@ export class AuditDetailPage implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private auditDetailService: AuditDetailService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(paramMap => {
@@ -43,9 +43,11 @@ export class AuditDetailPage implements OnInit {
   }
 
   averageScoreByPhase(phaseName: string) {
-      const findPhase = {...this.loadedStat.phaseScores.filter(phase => {
-      return phase.auditPhase === phaseName;
-    })};
+    const findPhase = {
+      ...this.loadedStat.phaseScores.filter(phase => {
+        return phase.auditPhase === phaseName;
+      })
+    };
     return findPhase[0].score;
   }
 }
