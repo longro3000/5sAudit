@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { AuditDetailPage } from './audit-detail.page';
 import { CheckItemListComponent } from './check-item-list/check-item-list.component';
 import { CheckItemComponent } from './check-item-list/check-item/check-item.component';
+import { MatStepperModule } from '@angular/material/stepper';
 
 const routes: Routes = [
   {
@@ -21,8 +22,9 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    MatStepperModule,
   ],
   declarations: [AuditDetailPage, CheckItemListComponent, CheckItemComponent]
 })
-export class AuditDetailPageModule {}
+export class AuditDetailPageModule { }

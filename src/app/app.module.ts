@@ -12,15 +12,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClient } from '@angular/common/http';
 import { AuditsPage } from './audits/audits.page';
 
+import { MatStepperModule } from '@angular/material/stepper';
 
 @NgModule({
   declarations: [AppComponent, AuditsPage],
   entryComponents: [],
   imports: [BrowserModule, HttpClientModule, IonicModule.forRoot(), AppRoutingModule,
-    BrowserAnimationsModule],
+    BrowserAnimationsModule, MatStepperModule],
   providers: [
     StatusBar,
     SplashScreen,
