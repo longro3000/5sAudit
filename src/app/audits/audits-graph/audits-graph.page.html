@@ -1,23 +1,26 @@
 <ion-content>
-  <ngx-charts-bar-vertical
-    yScaleMax=4
-    [view]="view"
-    [scheme]="colorScheme"
-    [results]="auditsAverageChart"
-    [gradient]="gradient"
-    [xAxis]="showXAxis"
-    [yAxis]="showYAxis"
-    [legend]="showLegend"
-    [showXAxisLabel]="showXAxisLabel"
-    [showYAxisLabel]="showYAxisLabel"
-    [xAxisLabel]="xAxisLabel"
-    [yAxisLabel]="yAxisLabel"
-    (select)="onSelect($event)"
-  >
-  </ngx-charts-bar-vertical>
+  <div class="barChart">
+    <ngx-charts-bar-vertical
+      yScaleMax="4"
+      [view]="view"
+      [scheme]="colorScheme"
+      [results]="auditsAverageChart"
+      [gradient]="gradient"
+      [xAxis]="showXAxis"
+      [yAxis]="showYAxis"
+      [legend]="showLegend"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel"
+      (select)="onSelect($event)"
+    >
+    </ngx-charts-bar-vertical>
+  </div>
+
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-      <ion-fab-button detail [routerLink]="['/new-audit']">
-          <ion-icon name="add"></ion-icon>
-        </ion-fab-button>
+    <ion-fab-button detail [routerLink]="['/new-audit']">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
   </ion-fab>
 </ion-content>
