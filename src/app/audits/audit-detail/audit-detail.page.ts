@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuditDetail } from '../audits.model';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { AuditDetailService } from './audit-detail.service';
 
 @Component({
@@ -14,8 +14,7 @@ export class AuditDetailPage implements OnInit {
   isLoading = false;
   constructor(
     private activatedRoute: ActivatedRoute,
-    private auditDetailService: AuditDetailService,
-    private router: Router) { }
+    private auditDetailService: AuditDetailService) { }
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(paramMap => {
