@@ -18,7 +18,7 @@ export class AuditsService {
   }
 
   getInitialAuditsShort(pageNumber: number, pageSize: number) {
-    return this.http.get<AuditShort[]>(`http://192.168.0.20:8080/fliq/v3/shortaudits?pageNumber=${pageNumber}&pageSize=${pageSize}`)
+    return this.http.get<AuditShort[]>(`http://10.15.10.214:8080/fliq/v3/shortaudits?pageNumber=${pageNumber}&pageSize=${pageSize}`)
       .pipe(map(newAuditShorts => {
         newAuditShorts.map(audit => {
           this.auditsList.push(audit);
