@@ -18,7 +18,7 @@ export class AuditFormPage implements OnInit {
     this.auditFormService.onSubmit(this.auditor);
     this.router.navigate(['./audits'])
       .then(() => {
-        //window.location.reload();
+        window.location.reload();
       });
   }
 }

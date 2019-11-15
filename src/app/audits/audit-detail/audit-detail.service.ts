@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { AuditShort, AuditDetail, CheckItem, ChartData, AuditStat } from '../audits.model';
-import {tap} from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,27 +12,27 @@ export class AuditDetailService {
   constructor(private http: HttpClient) { }
 
   getCheckItemByPhase(phase: string, checkItemList: CheckItem[]) {
-      return [...checkItemList.filter(checkItem => {
-          return checkItem.auditPhase === phase;
-      })];
+    return [...checkItemList.filter(checkItem => {
+      return checkItem.auditPhase === phase;
+    })];
   }
 
   getStat = (auditId: string) => {
-    return this.http.get<AuditStat>(`https://anypoint.mulesoft.com/mocking/api/v1/links/97b4576d-d8e1-4867-bc37-c6c0c9877aec/fliq/v3/stat/${auditId}`)
-          .pipe(tap(data => {
-            return data;
-          }));
-          //https://anypoint.mulesoft.com/mocking/api/v1/links/97b4576d-d8e1-4867-bc37-c6c0c9877aec/fliq/v3/stat/
-          //http://192.168.0.20:8080/fliq/v3/stat/
+    return this.http.get<AuditStat>(`http://10.15.10.214:8080/fliq/v3/stat/${auditId}`)
+      .pipe(tap(data => {
+        return data;
+      }));
+    //https://anypoint.mulesoft.com/mocking/api/v1/links/97b4576d-d8e1-4867-bc37-c6c0c9877aec/fliq/v3/stat/
+    //http://192.168.0.20:8080/fliq/v3/stat/
   }
   getAudit = (auditId: string) => {
-    return this.http.get<AuditDetail>(`https://anypoint.mulesoft.com/mocking/api/v1/links/97b4576d-d8e1-4867-bc37-c6c0c9877aec/fliq/v3/audits/${auditId}`)
-            .pipe(tap(Data => {
-              return Data;
-            }));
+    return this.http.get<AuditDetail>(`http://10.15.10.214:8080/fliq/v3/audits/${auditId}`)
+      .pipe(tap(Data => {
+        return Data;
+      }));
 
-            //https://anypoint.mulesoft.com/mocking/api/v1/links/97b4576d-d8e1-4867-bc37-c6c0c9877aec/fliq/v3/audits/
-            //http://192.168.0.20:8080/fliq/v3/audits/
- }
+    //https://anypoint.mulesoft.com/mocking/api/v1/links/97b4576d-d8e1-4867-bc37-c6c0c9877aec/fliq/v3/audits/
+    //http://192.168.0.20:8080/fliq/v3/audits/
+  }
 
 }

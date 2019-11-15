@@ -36,7 +36,7 @@ export class AuditDetailPage implements OnInit {
     private activatedRoute: ActivatedRoute,
     private auditDetailService: AuditDetailService,
     private zone: NgZone
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(paramMap => {
@@ -61,10 +61,10 @@ export class AuditDetailPage implements OnInit {
             chart.data = this.loadedStat.phaseScores;
 
             /* Create axes */
-            var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+            var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis() as any);
             categoryAxis.dataFields.category = "auditPhase";
 
-            var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+            var valueAxis = chart.yAxes.push(new am4charts.ValueAxis() as any);
             valueAxis.renderer.axisFills.template.fill = chart.colors.getIndex(
               2
             );
@@ -79,7 +79,8 @@ export class AuditDetailPage implements OnInit {
             series.tooltipText = "{valueY}";
             series.bullets.create(am4charts.CircleBullet);
 
-            chart.cursor = new am4charts.RadarCursor();
+
+            //chart.cursor = new am4charts.RadarCursor();
 
             chart.legend = new am4charts.Legend();
 
