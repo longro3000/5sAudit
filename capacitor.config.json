@@ -1,0 +1,8 @@
+{
+  "appId": "com.ionicapp.audit",
+  "appName": "5s-Audit-App",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}

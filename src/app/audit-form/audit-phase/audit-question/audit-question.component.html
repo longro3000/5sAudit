@@ -1,7 +1,7 @@
 <ion-grid>
   <ion-row class="ion-padding">
     <ion-col size-md="2" size-xs="6">
-      <div class="item-text-nowrap" style="word-wrap: break-word;">
+      <div class="item-text-nowrap" style="word-wrap: break-word;margin-left: 5px;">
         {{ auditQuestionItem.checkItem }}
       </div>
     </ion-col>
@@ -14,7 +14,15 @@
 
     <ion-col size-md="6" size-xs="12">
       <ion-row>
-        <ion-col offset-md="1" size-md="2.3">
+        <ion-col size-md="12" class="ion-text-center hidden-md-up">
+          <strong>
+            Score
+          </strong>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col offset-md=".4" offset-xs=".5" offset-sm=".3" size-md="2.3">
           <ion-label>
             0
           </ion-label>
@@ -46,41 +54,31 @@
       </ion-row>
 
       <ion-row>
-        <ion-col>
+        <ion-col size-xs="12">
           <ion-radio-group
             style=" border-bottom-color: transparent !important;
                 box-shadow: none !important;"
             (ionChange)="onChangeHandler($event)"
           >
             <ion-row>
-              <ion-col size-md="2.35" size-xs="3">
-                <ion-item>
-                  <ion-radio mode="md" item-left value="0"></ion-radio>
-                </ion-item>
+              <ion-col size-md="2.35" size-xs="2.4">
+                <ion-radio mode="md" item-left value="0"></ion-radio>
               </ion-col>
 
-              <ion-col size-md="2.35" size-xs="3">
-                <ion-item>
-                  <ion-radio mode="md" item-left value="1"></ion-radio>
-                </ion-item>
+              <ion-col size-md="2.35" size-xs="2.4">
+                <ion-radio mode="md" item-left value="1"></ion-radio>
               </ion-col>
 
-              <ion-col size-md="2.35" size-xs="3">
-                <ion-item>
-                  <ion-radio mode="md" item-left value="2"></ion-radio>
-                </ion-item>
+              <ion-col size-md="2.35" size-xs="2.4">
+                <ion-radio mode="md" item-left value="2"></ion-radio>
               </ion-col>
 
-              <ion-col size-md="2.35" size-xs="3">
-                <ion-item>
-                  <ion-radio mode="md" item-left value="3"></ion-radio>
-                </ion-item>
+              <ion-col size-md="2.35" size-xs="2.4">
+                <ion-radio mode="md" item-left value="3"></ion-radio>
               </ion-col>
 
-              <ion-col size-md="2.35" size-xs="3">
-                <ion-item>
-                  <ion-radio mode="md" item-left value="4"></ion-radio>
-                </ion-item>
+              <ion-col size-md="2.35" size-xs="2.4">
+                <ion-radio mode="md" item-left value="4"></ion-radio>
               </ion-col>
             </ion-row>
           </ion-radio-group>
