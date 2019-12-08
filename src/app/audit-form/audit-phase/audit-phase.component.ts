@@ -8,13 +8,16 @@ import { AuditFormService } from '../audit-form.service';
   templateUrl: './audit-phase.component.html',
   styleUrls: ['./audit-phase.component.scss'],
 })
+
 export class AuditPhaseComponent implements OnInit {
+
   @Input() auditQuestions: AuditQuestion[];
   @Input() auditQuestionsSORT: AuditQuestion[];
   @Input() auditQuestionsORDER: AuditQuestion[];
   @Input() auditQuestionsSUSTAIN: AuditQuestion[];
   @Input() auditQuestionsSHINE: AuditQuestion[];
   @Input() auditQuestionsSTANDARDIZE: AuditQuestion[];
+  
   constructor(private auditFormService: AuditFormService) { }
 
   ngOnInit() {

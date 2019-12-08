@@ -7,9 +7,11 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/audits/list"></ion-back-button>
     </ion-buttons>
-    <ion-title class="ion-text-center" style="font-size: 20px"
-      >Audit {{ loadedAudit.assessedDate }} Detail</ion-title
-    >
+    <ion-title class="ion-text-center">
+      <span class="toolbar-title">
+        Audit {{ loadedAudit.assessedDate }} Detail
+      </span>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -76,7 +78,7 @@
             phase="SORT"
           ></app-check-item-list>
 
-          <ion-row>
+          <!-- <ion-row>
             <ion-col>
               <div class="ion-text-center">
                 <button class="button_needToBeHidden" mat-button matStepperNext>
@@ -84,7 +86,7 @@
                 </button>
               </div>
             </ion-col>
-          </ion-row>
+          </ion-row> -->
         </mat-step>
 
         <mat-step>
@@ -107,7 +109,7 @@
             phase="ORDER"
           ></app-check-item-list>
 
-          <ion-row>
+          <!-- <ion-row>
             <ion-col size="6">
               <div class="ion-text-center">
                 <button
@@ -126,7 +128,7 @@
                 </button>
               </div>
             </ion-col>
-          </ion-row>
+          </ion-row> -->
         </mat-step>
 
         <mat-step>
@@ -148,7 +150,7 @@
             phase="SHINE"
           ></app-check-item-list>
 
-          <ion-row>
+          <!-- <ion-row>
             <ion-col size="6">
               <div class="ion-text-center">
                 <button
@@ -167,7 +169,7 @@
                 </button>
               </div>
             </ion-col>
-          </ion-row>
+          </ion-row> -->
         </mat-step>
 
         <mat-step>
@@ -190,7 +192,7 @@
             phase="STANDARDIZE"
           ></app-check-item-list>
 
-          <ion-row>
+        <!--   <ion-row>
             <ion-col size="6">
               <div class="ion-text-center">
                 <button
@@ -209,7 +211,7 @@
                 </button>
               </div>
             </ion-col>
-          </ion-row>
+          </ion-row> -->
         </mat-step>
 
         <mat-step>
@@ -232,7 +234,7 @@
             phase="SUSTAIN"
           ></app-check-item-list>
 
-          <ion-row>
+         <!--  <ion-row>
             <ion-col>
               <div class="ion-text-center">
                 <button
@@ -244,7 +246,7 @@
                 </button>
               </div>
             </ion-col>
-          </ion-row>
+          </ion-row> -->
         </mat-step>
       </mat-vertical-stepper>
     </ion-grid>

@@ -27,7 +27,9 @@ export class AuditsGraphPage implements OnInit {
   colorScheme = {
     domain: ['#3880FF']
   };
-  constructor(private auditsGraphService: AuditsGraphService) { }
+  constructor(private auditsGraphService: AuditsGraphService) {
+    this.view = [innerWidth / 1.35, 350];
+  }
 
   ngOnInit() {
     this.auditsGraphService.barChartData.subscribe(data => {
@@ -37,16 +39,20 @@ export class AuditsGraphPage implements OnInit {
 
   ionViewWillEnter() {
     this.auditsGraphService.getAuditsBarGraphData(0, this.value).subscribe();
- }
+  }
 
- onChangeHandler(event) {
-   this.value = +event.target.value;
-   this.auditsGraphService.getAuditsBarGraphData(0, this.value).subscribe();
-}
+  onChangeHandler(event) {
+    this.value = +event.target.value;
+    this.auditsGraphService.getAuditsBarGraphData(0, this.value).subscribe();
+  }
 
 
   onSelect(event) {
     console.log(event);
+  }
+
+  onResize(event) {
+    this.view = [event.target.innerWidth / 1.35, 350];
   }
 
 }

@@ -18,7 +18,7 @@ export class AuditsService {
   }
 
   getInitialAuditsShort(pageNumber: number, pageSize: number) {
-    return this.http.get<AuditShort[]>(`http://192.168.100.10:8080/fliq/v3/shortaudits?pageNumber=${pageNumber}&pageSize=${pageSize}`)
+    return this.http.get<AuditShort[]>(`https://anypoint.mulesoft.com/mocking/api/v1/links/bccaf32c-b657-46ab-aef6-11acd461a9c0/fliq/v3/shortaudits?pageNumber=${pageNumber}&pageSize=${pageSize}`)
       .pipe(map(newAuditShorts => {
         newAuditShorts.map(audit => {
           this.auditsList.push(audit);
@@ -27,7 +27,7 @@ export class AuditsService {
       }), tap(audits => {
         this._auditsShort.next(audits);
       }));
-    //https://anypoint.mulesoft.com/mocking/api/v1/links/97b4576d-d8e1-4867-bc37-c6c0c9877aec/fliq/v3/shortaudits
+    //https://anypoint.mulesoft.com/mocking/api/v1/links/bccaf32c-b657-46ab-aef6-11acd461a9c0/fliq/v3/shortaudits
     //http://192.168.100.10:8080/fliq/v3/shortaudits
   }
 }

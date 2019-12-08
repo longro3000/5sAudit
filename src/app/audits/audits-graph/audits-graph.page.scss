@@ -1,3 +1,11 @@
 .barChart {
-  padding: 15vh 5vw;
+  &__container {
+    display: grid;
+
+  }
+
+  &__element {
+    padding: 15vh 10vw;
+  }
+  
 }
