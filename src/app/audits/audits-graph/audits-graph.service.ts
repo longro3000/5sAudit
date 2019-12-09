@@ -3,7 +3,7 @@ import { ChartData, AuditShort, AuditStat } from '../audits.model';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { tap, map } from 'rxjs/operators';
-import _ from 'lodash';
+import * as _ from 'lodash';
 import { truncateWithEllipsis } from '@amcharts/amcharts4/.internal/core/utils/Utils';
 
 @Injectable({
