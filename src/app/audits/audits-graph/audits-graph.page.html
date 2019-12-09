@@ -52,28 +52,38 @@
       </ion-row>
     </ion-radio-group>
   </ion-grid>
-
   <div class="barChart__container">
-    <ngx-charts-bar-vertical
-      class="barChart__element"
-      yScaleMax="4"
-      (window:resize)="onResize($event)"
-      [view]="view"
-      [scheme]="colorScheme"
-      [results]="auditsAverageChart"
-      [gradient]="gradient"
-      [xAxis]="showXAxis"
-      [yAxis]="showYAxis"
-      [legend]="showLegend"
-      [showXAxisLabel]="showXAxisLabel"
-      [showYAxisLabel]="showYAxisLabel"
-      [xAxisLabel]="xAxisLabel"
-      [yAxisLabel]="yAxisLabel"
-      (select)="onSelect($event)"
-    >
-    </ngx-charts-bar-vertical>
+    <combo-chart-component
+        class="chart-container barChart__element"
+        [view]="view"
+        [scheme]="comboBarScheme"
+        [colorSchemeLine]="lineChartScheme"
+        [results]="auditsAverageChart"
+        [animations]="animations"
+        [lineChart]="lineChart"
+        [tooltipDisabled]="tooltipDisabled"
+        [yAxisTickFormatting]="yLeftTickFormat"
+        [yLeftAxisScaleFactor]="yLeftAxisScale"
+        [yRightAxisScaleFactor]="yRightAxisScale"
+        [yRightAxisTickFormatting]="yRightTickFormat"
+        [gradient]="gradient"
+        [xAxis]="showXAxis"
+        [yAxis]="showYAxis"
+        [legend]="showLegend"
+        [legendTitle]="legendTitle"
+        [legendPosition]="legendPosition"
+        [showGridLines]="showGridLines"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [showRightYAxisLabel]="showYAxisLabel"
+        [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="yAxisLabel"
+        [yAxisLabelRight]="yAxisLabelRight"
+        [noBarWhenZero]="noBarWhenZero"
+        (select)="onSelect($event)"
+        (resize)="onResize($event)"
+      ></combo-chart-component>
   </div>
-
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button detail [routerLink]="['/new-audit']">
       <ion-icon name="add"></ion-icon>

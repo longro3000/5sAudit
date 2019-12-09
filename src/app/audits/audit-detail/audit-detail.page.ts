@@ -12,6 +12,8 @@ import { AuditDetailService } from "./audit-detail.service";
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
+import _ from "lodash";
+
 am4core.useTheme(am4themes_animated);
 
 @Component({
@@ -21,7 +23,9 @@ am4core.useTheme(am4themes_animated);
 })
 export class AuditDetailPage implements OnInit {
   loadedAudit: AuditDetail;
-  loadedStat: AuditStat;
+  loadedStat: any;
+  allStat: AuditStat;
+
   sortScore: number;
   shineScore: number;
   orderScore: number;
@@ -46,11 +50,15 @@ export class AuditDetailPage implements OnInit {
         this.loadedAudit = data;
         this.auditDetailService.getStat(this.auditId).subscribe(data => {
           this.loadedStat = data;
+        this.auditDetailService.getAllStat().subscribe(data => {
+          this.allStat = data;
+          this.createChartData();
           this.sortScore = this.averageScoreByPhase("SORT");
           this.shineScore = this.averageScoreByPhase("SHINE");
           this.orderScore = this.averageScoreByPhase("ORDER");
           this.sustainScore = this.averageScoreByPhase("SUSTAIN");
           this.standardScore = this.averageScoreByPhase("STANDARDIZE");
+
           this.zone.runOutsideAngular(() => {
             // chart code
             let chart = am4core.create(
@@ -80,6 +88,15 @@ export class AuditDetailPage implements OnInit {
             series.bullets.create(am4charts.CircleBullet);
 
 
+            var series2 = chart.series.push(new am4charts.RadarSeries());
+            series2.stroke = am4core.color("blue");
+            series2.fill = am4core.color("blue");
+            series2.dataFields.valueY = "allStat";
+            series2.dataFields.categoryX = "auditPhase";
+            series2.name = "All Audits";
+            series2.strokeWidth = 3;
+            series2.tooltipText = "{valueY}";
+            series2.bullets.create(am4charts.CircleBullet); 
             //chart.cursor = new am4charts.RadarCursor();
 
             chart.legend = new am4charts.Legend();
@@ -87,6 +104,7 @@ export class AuditDetailPage implements OnInit {
             this.chart = chart;
           });
         });
+      });
         this.isLoading = false;
       });
     });
@@ -108,4 +126,18 @@ export class AuditDetailPage implements OnInit {
       }
     });
   }
+
+  createChartData() {
+    _.map(this.loadedStat.phaseScores, (phase) => {
+        let addedData = this.getScoreByPhase(phase.auditPhase);
+        phase.allStat = addedData.score;
+        return;
+    })
+  };
+
+  getScoreByPhase(phase: string) {
+    return _.find(this.allStat.phaseScores, (phaseScore) => {
+      return phaseScore.auditPhase === phase;
+    });
+  };
 }

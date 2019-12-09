@@ -8,6 +8,8 @@ import { IonicModule } from '@ionic/angular';
 import { AuditsGraphPage } from './audits-graph.page';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
+import { ComboChartComponent, ComboSeriesVerticalComponent } from '../../combo-chart';
+
 const routes: Routes = [
   {
     path: '',
@@ -23,6 +25,6 @@ const routes: Routes = [
     NgxChartsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [AuditsGraphPage]
+  declarations: [AuditsGraphPage, ComboChartComponent, ComboSeriesVerticalComponent]
 })
 export class AuditsGraphPageModule {}
