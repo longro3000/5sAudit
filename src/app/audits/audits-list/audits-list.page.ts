@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './audits-list.page.html',
   styleUrls: ['./audits-list.page.scss'],
 })
-export class AuditsListPage implements OnInit, OnDestroy {
+export class AuditsListPage implements OnInit {
 
   @ViewChild(IonInfiniteScroll, { static: false }) infiniteScroll: IonInfiniteScroll;
 
@@ -24,7 +24,7 @@ export class AuditsListPage implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    this.dataSubcription = this.auditsService.auditShort.subscribe(data => {
+    this.auditsService.auditShort.subscribe(data => {
       this.auditsShort = data;
 
       /* for (this.auditShort of this.auditsShort) {
@@ -51,12 +51,6 @@ export class AuditsListPage implements OnInit, OnDestroy {
 
   ionViewWillEnter() {
     this.auditsService.getInitialAuditsShort(this.page, 14).subscribe();
-  }
-
-  ngOnDestroy() {
-    //Called once, before the instance is destroyed.
-    //Add 'implements OnDestroy' to the class.
-    this.dataSubcription.unsubscribe();
   }
 
 }

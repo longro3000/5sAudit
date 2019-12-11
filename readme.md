@@ -9,3 +9,9 @@ run these additional commands:
 
 "npm i @angular/cli" and "npm install -g ionic"
 
+Then run "ionic serve" to run the project on your default browser
+
+If you want to run this on a native Device (mobile phones or tablets), you need to install Cordova or Capacitor, follow the instruction of Ionic documentation to finish the process: "https://ionicframework.com/docs/cli/commands/build"
+
+
+

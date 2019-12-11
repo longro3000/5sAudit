@@ -65,7 +65,7 @@ export class AuditDetailPage implements OnInit {
                 document.getElementById("chartdiv"),
                 am4charts.RadarChart
               );
-              console.log(this.loadedStat);
+
               chart.data = this.loadedStat.phaseScores;
 
               /* Create axes */
