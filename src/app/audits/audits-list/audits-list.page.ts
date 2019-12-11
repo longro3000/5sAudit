@@ -26,13 +26,12 @@ export class AuditsListPage implements OnInit, OnDestroy {
 
     this.dataSubcription = this.auditsService.auditShort.subscribe(data => {
       this.auditsShort = data;
-      console.log(this.auditsShort);
 
-      for (this.auditShort of this.auditsShort) {
+      /* for (this.auditShort of this.auditsShort) {
         console.log(this.auditShort);
         this.auditShort.assessedDate = Date.parse(this.auditShort.assessedDate).toString();
         Number(this.auditShort.assessedDate);
-      }
+      } */
     });
   }
 
