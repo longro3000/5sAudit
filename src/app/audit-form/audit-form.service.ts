@@ -22,11 +22,12 @@ export class AuditFormService {
 
 
   getAllQuestion() {
-    return this.http.get('https://anypoint.mulesoft.com/mocking/api/v1/links/bccaf32c-b657-46ab-aef6-11acd461a9c0/fliq/v3/activequestions');
+    return this.http.get('https://anypoint.mulesoft.com/mocking/api/v1/links/e84a2be7-f46c-440b-ba8e-b80130e3bb38/fliq/v3/activequestions');
 
   }
-//http://192.168.137.1:8080/fliq/v3/activequestions
-  //https://anypoint.mulesoft.com/mocking/api/v1/links/bccaf32c-b657-46ab-aef6-11acd461a9c0/fliq/v3/activequestions
+  //http://192.168.137.1:8080/fliq/v3/activequestions
+
+  //https://anypoint.mulesoft.com/mocking/api/v1/links/e84a2be7-f46c-440b-ba8e-b80130e3bb38/fliq/v3/activequestions
 
   getAuditQuestionbyPhaseName(phaseName: string, auditQuestionList: AuditQuestion[]) {
     return [...auditQuestionList.filter(auditQuestion => {
@@ -57,7 +58,7 @@ export class AuditFormService {
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
     console.log(this.auditForm);
-    this.http.post<AuditForm>('http://192.168.137.1:8080/fliq/v3/audits', this.auditForm, { headers })
+    this.http.post<AuditForm>('http://192.168.100.10:8080/fliq/v3/audits', this.auditForm, { headers })
       .subscribe(data => {
         console.log(data);
       }, error => {

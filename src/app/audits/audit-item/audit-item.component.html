@@ -1,14 +1,14 @@
+
 <ion-item [routerLink]="['./', auditShortItem.key]">
   <ion-col size="5">
-    <p>{{ auditShortItem.assessedDate }}</p>
+    <p>{{ auditShortItem.assessedDate | date: "medium" }}</p>
   </ion-col>
   <ion-col size-xs="4" offset-xs="1" offset-md="1.5">
     <p>{{ auditShortItem.auditorName }}</p>
   </ion-col>
   <ion-col size-xs="3" offset-md="1" offset-xs="0" slot="end">
     <ion-col offset-md="1.3" offset-xs="1.2">
-        <ion-text [color]="color">{{ auditShortItem.averageScore }}</ion-text>
+      <ion-text [color]="color">{{ auditShortItem.averageScore }}</ion-text>
     </ion-col>
-    
   </ion-col>
 </ion-item>

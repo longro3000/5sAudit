@@ -50,61 +50,61 @@ export class AuditDetailPage implements OnInit {
         this.loadedAudit = data;
         this.auditDetailService.getStat(this.auditId).subscribe(data => {
           this.loadedStat = data;
-        this.auditDetailService.getAllStat().subscribe(data => {
-          this.allStat = data;
-          this.createChartData();
-          this.sortScore = this.averageScoreByPhase("SORT");
-          this.shineScore = this.averageScoreByPhase("SHINE");
-          this.orderScore = this.averageScoreByPhase("ORDER");
-          this.sustainScore = this.averageScoreByPhase("SUSTAIN");
-          this.standardScore = this.averageScoreByPhase("STANDARDIZE");
+          this.auditDetailService.getAllStat().subscribe(data => {
+            this.allStat = data;
+            this.createChartData();
+            this.sortScore = this.averageScoreByPhase("SORT");
+            this.shineScore = this.averageScoreByPhase("SHINE");
+            this.orderScore = this.averageScoreByPhase("ORDER");
+            this.sustainScore = this.averageScoreByPhase("SUSTAIN");
+            this.standardScore = this.averageScoreByPhase("STANDARDIZE");
 
-          this.zone.runOutsideAngular(() => {
-            // chart code
-            let chart = am4core.create(
-              document.getElementById("chartdiv"),
-              am4charts.RadarChart
-            );
-            console.log(this.loadedStat);
-            chart.data = this.loadedStat.phaseScores;
+            this.zone.runOutsideAngular(() => {
+              // chart code
+              let chart = am4core.create(
+                document.getElementById("chartdiv"),
+                am4charts.RadarChart
+              );
+              console.log(this.loadedStat);
+              chart.data = this.loadedStat.phaseScores;
 
-            /* Create axes */
-            var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis() as any);
-            categoryAxis.dataFields.category = "auditPhase";
+              /* Create axes */
+              var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis() as any);
+              categoryAxis.dataFields.category = "auditPhase";
 
-            var valueAxis = chart.yAxes.push(new am4charts.ValueAxis() as any);
-            valueAxis.renderer.axisFills.template.fill = chart.colors.getIndex(
-              2
-            );
-            valueAxis.renderer.axisFills.template.fillOpacity = 0.05;
+              var valueAxis = chart.yAxes.push(new am4charts.ValueAxis() as any);
+              valueAxis.renderer.axisFills.template.fill = chart.colors.getIndex(
+                2
+              );
+              valueAxis.renderer.axisFills.template.fillOpacity = 0.05;
 
-            /* Create and configure series */
-            var series = chart.series.push(new am4charts.RadarSeries());
-            series.dataFields.valueY = "score";
-            series.dataFields.categoryX = "auditPhase";
-            series.name = "This Audit";
-            series.strokeWidth = 3;
-            series.tooltipText = "{valueY}";
-            series.bullets.create(am4charts.CircleBullet);
+              /* Create and configure series */
+              var series = chart.series.push(new am4charts.RadarSeries());
+              series.dataFields.valueY = "score";
+              series.dataFields.categoryX = "auditPhase";
+              series.name = "This Audit";
+              series.strokeWidth = 3;
+              series.tooltipText = "{valueY}";
+              series.bullets.create(am4charts.CircleBullet);
 
 
-            var series2 = chart.series.push(new am4charts.RadarSeries());
-            series2.stroke = am4core.color("blue");
-            series2.fill = am4core.color("blue");
-            series2.dataFields.valueY = "allStat";
-            series2.dataFields.categoryX = "auditPhase";
-            series2.name = "All Audits";
-            series2.strokeWidth = 3;
-            series2.tooltipText = "{valueY}";
-            series2.bullets.create(am4charts.CircleBullet); 
-            //chart.cursor = new am4charts.RadarCursor();
+              var series2 = chart.series.push(new am4charts.RadarSeries());
+              series2.stroke = am4core.color("blue");
+              series2.fill = am4core.color("blue");
+              series2.dataFields.valueY = "allStat";
+              series2.dataFields.categoryX = "auditPhase";
+              series2.name = "All Audits";
+              series2.strokeWidth = 3;
+              series2.tooltipText = "{valueY}";
+              series2.bullets.create(am4charts.CircleBullet);
+              //chart.cursor = new am4charts.RadarCursor();
 
-            chart.legend = new am4charts.Legend();
+              chart.legend = new am4charts.Legend();
 
-            this.chart = chart;
+              this.chart = chart;
+            });
           });
         });
-      });
         this.isLoading = false;
       });
     });
@@ -129,9 +129,9 @@ export class AuditDetailPage implements OnInit {
 
   createChartData() {
     _.map(this.loadedStat.phaseScores, (phase) => {
-        let addedData = this.getScoreByPhase(phase.auditPhase);
-        phase.allStat = addedData.score;
-        return;
+      let addedData = this.getScoreByPhase(phase.auditPhase);
+      phase.allStat = addedData.score;
+      return;
     })
   };
 
