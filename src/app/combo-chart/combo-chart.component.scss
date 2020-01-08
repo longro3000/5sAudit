@@ -1,89 +1,92 @@
 .ngx-charts {
-  float: left;
-  overflow: visible;
+	float: left;
+	overflow: visible;
 
-  .circle,
-  .bar,
-  .arc {
-    cursor: pointer;
-  }
+	.circle,
+	.bar,
+	.arc {
+		cursor: pointer;
+	}
 
-  .bar,
-  .cell,
-  .arc,
-  .card {
-    &.active,
-    &:hover {
-      opacity: 0.8;
-      transition: opacity 100ms ease-in-out;
-    }
+	.bar,
+	.cell,
+	.arc,
+	.card {
+		&.active,
+		&:hover {
+			opacity: 0.8;
+			transition: opacity 100ms ease-in-out;
+		}
 
-    &:focus {
-      outline: none;
-    }
-    &.hidden{
-      display: none;
-    }
-  }
+		&:focus {
+			outline: none;
+		}
+		&.hidden {
+			display: none;
+		}
+	}
 
-  g {
-    &:focus {
-      outline: none;
-    }
-  }
+	g {
+		&:focus {
+			outline: none;
+		}
+	}
 
-  .line-series,
-  .line-series-range,
-  .area-series {
-    &.inactive {
-      transition: opacity 100ms ease-in-out;
-      opacity: .2
-    }
-  }
+	.line {
+		stroke-width: 5px;
+	}
 
-  .line-highlight {
-    display: none;
+	.line-series,
+	.line-series-range,
+	.area-series {
+		&.inactive {
+			transition: opacity 100ms ease-in-out;
+			opacity: .2;
+		}
+	}
 
-    &.active {
-      display: block;
-    }
-  }
+	.line-highlight {
+		display: none;
 
-  .area {
-    opacity: 0.6;
-  }
+		&.active {
+			display: block;
+		}
+	}
 
-  .circle {
-    &:hover {
-      cursor: pointer;
-    }
-  }
+	.area {
+		opacity: 0.6;
+	}
 
-  .label {
-    font-size: 12px;
-    font-weight: normal;
-  }
+	.circle {
+		&:hover {
+			cursor: pointer;
+		}
+	}
 
-  .tooltip-anchor {
-    fill: rgb(0,0,0);
-  }
+	.label {
+		font-size: 12px;
+		font-weight: normal;
+	}
 
-  .gridline-path {
-    stroke: #ddd;
-    stroke-width: 1;
-    fill: none;
-  }
+	.tooltip-anchor {
+		fill: rgb(0, 0, 0);
+	}
 
-  .grid-panel {
-    rect {
-      fill: none;
-    }
+	.gridline-path {
+		stroke: #ddd;
+		stroke-width: 1;
+		fill: none;
+	}
 
-    &.odd {
-      rect {
-        fill: rgba(0,0,0,0.05);
-      }
-    }
-  }
+	.grid-panel {
+		rect {
+			fill: none;
+		}
 
+		&.odd {
+			rect {
+				fill: rgba(0, 0, 0, 0.05);
+			}
+		}
+	}
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartData, AuditShort } from '../audits.model';
 import { AuditsGraphService } from './audits-graph.service';
+import * as regression from 'regression';
 
 @Component({
   selector: 'app-audits-graph',
@@ -27,22 +28,22 @@ export class AuditsGraphPage implements OnInit {
   showXAxisLabel = true;
   xAxisLabel = 'Audits';
   showYAxisLabel = true;
-  yAxisLabel = 'Score';
+  yAxisLabel = 'Trend';
   showGridLines = true;
   innerPadding = '5%';
   animations: boolean = true;
   lineChartScheme = {
-    name: 'coolthree',
+    name: 'audits stats',
     selectable: true,
     group: 'Ordinal',
-    domain: ['#01579b', '#7aa3e5', '#a8385d', '#00bfa5', '#000000']
+    domain: ['#000000']
   };
 
   comboBarScheme = {
-    name: 'singleLightBlue',
+    name: 'audits score',
     selectable: true,
     group: 'Ordinal',
-    domain: ['#3171e0']
+    domain: ['#ffcc99']
   };
 
   showRightYAxisLabel: boolean = true;
@@ -58,13 +59,14 @@ export class AuditsGraphPage implements OnInit {
     this.lineChart = [];
     this.auditsGraphService.barChartData.subscribe(data => {
       this.auditsAverageChart = data;
-      this.lineChart = this.auditsGraphService.getAuditsLineGraphData(this.auditsAverageChart);
-  });
+      this.lineChart = this.createTrendChart(this.auditsAverageChart);/* this.auditsGraphService.getAuditsLineGraphData(this.auditsAverageChart); */
+      //console.log(this.lineChart);
+    });
 
   };
 
   ionViewWillEnter() {
-    this.auditsGraphService.getAuditsBarGraphData(0, this.value).subscribe();  
+    this.auditsGraphService.getAuditsBarGraphData(0, this.value).subscribe();
   }
 
   onChangeHandler(event) {
@@ -79,6 +81,28 @@ export class AuditsGraphPage implements OnInit {
 
   onResize(event) {
     this.view = [event.target.innerWidth / 1.35, 350];
+  }
+
+  createTrendChart(barChart: ChartData[]) {
+    let lineChartTemplates = [
+      {
+        name: "Trend",
+        series: []
+      }
+    ];
+    let barChartData = new Array;
+
+    for (let i = 0; i < barChart.length; i++) {
+      barChartData.push([i, barChart[i].value]);
+    };
+
+    let result = regression.linear(barChartData);
+    console.log(result);
+    for (let i = 0; i < barChartData.length; i++) {
+      lineChartTemplates[0].series.push({ 'value': result.points[i][1], 'name': barChart[i].name });
+    }
+
+    return lineChartTemplates;
   }
 
 }
