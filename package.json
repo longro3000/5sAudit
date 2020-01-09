@@ -5,21 +5,21 @@
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
+    "start": "node server.js",
     "build": "ng build",
+    "postinstall": "ng build --aot --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "postinstall": "ng build --aot -prod",
-    "start": "node server.js"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
     "@amcharts/amcharts4": "^4.7.20",
     "@angular/animations": "^8.2.14",
     "@angular/cdk": "~8.2.3",
+    "@angular/cli": "^8.3.22",
     "@angular/common": "^8.2.14",
     "@angular/compiler": "^8.2.14",
-    "@angular/cli": "^8.3.22",
     "@angular/compiler-cli": "^8.2.14",
     "@angular/core": "^8.2.14",
     "@angular/forms": "^8.2.14",
@@ -34,13 +34,18 @@
     "@ionic-native/status-bar": "^5.19.1",
     "@ionic/angular": "^4.11.7",
     "@swimlane/ngx-charts": "^12.1.0",
+    "body-parser": "^1.19.0",
     "cordova-android": "8.1.0",
     "core-js": "^3.6.2",
+    "cors": "^2.8.5",
     "datejs": "^1.0.0-rc3",
+    "express": "^4.17.1",
     "lodash": "^4.17.15",
+    "morgan": "^1.9.1",
     "regression": "^2.0.1",
     "rxjs": "^6.5.4",
     "tslib": "^1.9.0",
+    "typescript": "~3.5.3",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
@@ -71,8 +76,7 @@
     "karma-jasmine-html-reporter": "^1.5.1",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
-    "tslint": "~5.15.0",
-    "typescript": "~3.5.3"
+    "tslint": "~5.15.0"
   },
   "description": "An Ionic project",
   "cordova": {

@@ -18,7 +18,7 @@ export class AuditDetailService {
   }
 
   getStat = (auditId: string) => {
-    return this.http.get<AuditStat>(`http://ec2-13-48-203-158.eu-north-1.compute.amazonaws.com:8080/fliq/v3/stat/${auditId}`)
+    return this.http.get<AuditStat>(`http://13.48.203.158:8080/fliq/v3/stat/${auditId}`)
       .pipe(tap(data => {
         return data;
       }));
@@ -27,7 +27,7 @@ export class AuditDetailService {
   }
 
   getAllStat = () => {
-    return this.http.get<AuditStat>(`http://ec2-13-48-203-158.eu-north-1.compute.amazonaws.com:8080/fliq/v3/stat`)
+    return this.http.get<AuditStat>(`http://13.48.203.158:8080/fliq/v3/stat`)
       .pipe(tap(data => {
         return data;
       }));
@@ -36,7 +36,7 @@ export class AuditDetailService {
   }
 
   getAudit = (auditId: string) => {
-    return this.http.get<AuditDetail>(`http://ec2-13-48-203-158.eu-north-1.compute.amazonaws.com:8080/fliq/v3/audits/${auditId}`)
+    return this.http.get<AuditDetail>(`http://13.48.203.158:8080/fliq/v3/audits/${auditId}`)
       .pipe(tap(Data => {
         return Data;
       }));

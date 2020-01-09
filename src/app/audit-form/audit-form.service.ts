@@ -22,7 +22,7 @@ export class AuditFormService {
 
 
   getAllQuestion() {
-    return this.http.get('http://ec2-13-48-203-158.eu-north-1.compute.amazonaws.com:8080/fliq/v3/activequestions');
+    return this.http.get('http://13.48.203.158:8080/fliq/v3/activequestions');
   }
   //http://10.15.10.214:8080/fliq/v3/activequestions
 
@@ -56,7 +56,7 @@ export class AuditFormService {
 
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
-    this.http.post<AuditForm>('http://ec2-13-48-203-158.eu-north-1.compute.amazonaws.com:8080/fliq/v3/audits', this.auditForm, { headers })
+    this.http.post<AuditForm>('http://13.48.203.158:8080/fliq/v3/audits', this.auditForm, { headers })
       .subscribe(data => {
         console.log(data);
       }, error => {
