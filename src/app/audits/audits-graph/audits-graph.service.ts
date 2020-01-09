@@ -42,7 +42,7 @@ export class AuditsGraphService {
   }
 
   getAuditsBarGraphData(pageNumber: number, pageSize: number) {
-    return this.http.get<AuditShort[]>(`http://ec2-13-48-203-158.eu-north-1.compute.amazonaws.com:8080/fliq/v3/shortaudits?pageNumber=${pageNumber}&pageSize=${pageSize}`)
+    return this.http.get<AuditShort[]>(`http://13.48.203.158:8080/fliq/v3/shortaudits?pageNumber=${pageNumber}&pageSize=${pageSize}`)
       .pipe(map(newAuditShorts => {
         let newData = [];
         newAuditShorts.map((audit) => {
